@@ -23,6 +23,11 @@ export const tokens = {
     dark800:     '#13131A',
     dark700:     '#1A1A24',
     dark600:     '#1A1A2E',
+    // Semantic state colors
+    error:   '#EF4444',
+    warning: '#F59E0B',
+    info:    '#3B82F6',
+    success: '#16A34A',
   },
   theme: {
     light: {
@@ -52,6 +57,17 @@ export const tokens = {
     lg:   '16px',
     xl:   '20px',
     full: '9999px',
+  },
+  spacing: {
+    space1: '4px',
+    space2: '8px',
+    space3: '12px',
+    space4: '16px',
+    space5: '24px',
+    space6: '32px',
+    space7: '48px',
+    space8: '64px',
+    space9: '96px',
   },
   shadow: {
     actionSm:   '0 4px 16px rgba(22, 163, 74, 0.25)',
