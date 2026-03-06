@@ -25,6 +25,23 @@
   --xd-streak:        #EF4444;
   --xd-badge:         #8B5CF6;
 
+  /* -- Semantic state colors -- */
+  --xd-error:   #EF4444;
+  --xd-warning: #F59E0B;
+  --xd-info:    #3B82F6;
+  --xd-success: #16A34A;
+
+  /* -- Spacing scale -- */
+  --xd-space-1: 4px;
+  --xd-space-2: 8px;
+  --xd-space-3: 12px;
+  --xd-space-4: 16px;
+  --xd-space-5: 24px;
+  --xd-space-6: 32px;
+  --xd-space-7: 48px;
+  --xd-space-8: 64px;
+  --xd-space-9: 96px;
+
   /* -- Typography -- */
   --xd-font-sans: 'Inter', system-ui, -apple-system, sans-serif;
   --xd-font-mono: 'JetBrains Mono', 'Fira Code', monospace;
