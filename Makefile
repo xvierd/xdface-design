@@ -9,10 +9,11 @@ BUCKET := $(shell aws-vault exec theants -- aws ssm get-parameter \
   --query Parameter.Value --output text --region us-east-1 2>/dev/null)
 
 dev:
+	cat tokens.css web/src/styles/global.css > web/public/styles/global.css
 	cd web && npm run dev
 
 build:
-	cp web/src/styles/global.css web/public/styles/global.css
+	cat tokens.css web/src/styles/global.css > web/public/styles/global.css
 	cd web && npm run build
 
 deploy: build
