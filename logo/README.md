@@ -44,7 +44,12 @@ The xdface logo features a stylized face with:
 
 ## Favicon
 
-The favicon uses the same SVGs at 32×32, 192×192 sizes.
+The logo files ARE the favicons. Use them directly:
+
+| File | Use As | Purpose |
+|------|--------|---------|
+| `logo.svg` | `favicon.svg` | Light mode favicon |
+| `logo-dark.svg` | `favicon-dark.svg` | Dark mode favicon |
 
 ### Usage in Apps
 
@@ -59,6 +64,8 @@ The favicon uses the same SVGs at 32×32, 192×192 sizes.
 
 ## Export Sizes
 
+When exporting from the SVGs:
+
 | Size | Use Case |
 |------|----------|
 | 32×32 | Browser favicon |
@@ -66,6 +73,8 @@ The favicon uses the same SVGs at 32×32, 192×192 sizes.
 | 512×512 | PWA maskable |
 
 ## Copy to Apps
+
+The logo files are used as favicons in apps (just rename/copy):
 
 ```bash
 # Site
@@ -76,3 +85,5 @@ cp logo-dark.svg ../site/web/public/favicon-dark.svg
 cp logo.svg ../xdface-vault/web/public/favicon.svg
 cp logo-dark.svg ../xdface-vault/web/public/favicon-dark.svg
 ```
+
+**Note:** `logo.svg` → `favicon.svg` (same file, different name in apps)
