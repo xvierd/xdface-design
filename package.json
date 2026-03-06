@@ -1,6 +1,6 @@
 {
   "name": "@xdface/tokens",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "xdface Design System — CSS variables, TypeScript constants, and Tailwind preset",
   "license": "MIT",
   "repository": {
