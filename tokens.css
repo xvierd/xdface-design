@@ -1,0 +1,105 @@
+/* xdface Design System -- CSS Custom Properties
+ * Generated from tokens.json -- edit tokens.json, not this file
+ * Usage: @import 'path/to/tokens.css'; in any app's global CSS
+ */
+
+:root {
+  /* -- Primitive colors -- */
+  --xd-green-400:     #4ade80;
+  --xd-green-500:     #16A34A;
+  --xd-green-600:     #15803D;
+  --xd-orange-400:    #fb923c;
+  --xd-orange-500:    #EA580C;
+  --xd-orange-600:    #C2410C;
+  
+  /* -- Brand gradient -- */
+  --xd-gradient-action:      linear-gradient(135deg, #16A34A 0%, #EA580C 100%);
+  --xd-gradient-dark-chrome: linear-gradient(180deg, #0F0F1A 0%, #13132A 60%, #0D0D18 100%);
+  --xd-gradient-top-accent:  linear-gradient(to right, #16A34A, #EA580C);
+
+  /* -- Semantic colors -- */
+  --xd-action:        #16A34A;
+  --xd-action-end:    #EA580C;
+  --xd-action-hover:  #15803D;
+  --xd-xp:            #F59E0B;
+  --xd-streak:        #EF4444;
+  --xd-badge:         #8B5CF6;
+
+  /* -- Typography -- */
+  --xd-font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+  --xd-font-mono: 'JetBrains Mono', 'Fira Code', monospace;
+
+  /* -- Border radius -- */
+  --xd-radius-sm:   8px;
+  --xd-radius-md:   12px;
+  --xd-radius-lg:   16px;
+  --xd-radius-xl:   20px;
+  --xd-radius-full: 9999px;
+
+  /* -- Shadows -- */
+  --xd-shadow-action-sm:  0 4px 16px rgba(22, 163, 74, 0.25);
+  --xd-shadow-action-md:  0 6px 24px rgba(22, 163, 74, 0.35);
+  --xd-shadow-action-glow: 0 0 32px rgba(22, 163, 74, 0.4);
+
+  /* -- Light theme (default) -- */
+  --xd-bg:          #F8F8FA;
+  --xd-surface:     #FFFFFF;
+  --xd-surface-2:   #F2F2F5;
+  --xd-border:      rgba(0, 0, 0, 0.08);
+  --xd-text:        #111118;
+  --xd-text-muted:  #707080;
+}
+
+/* Dark theme -- add .xd-dark to <html> or use with [data-theme="dark"] */
+.xd-dark,
+[data-theme="dark"],
+[data-xd-theme="dark"] {
+  --xd-bg:         #0D0D12;
+  --xd-surface:    #13131A;
+  --xd-surface-2:  #1A1A24;
+  --xd-border:     rgba(255, 255, 255, 0.07);
+  --xd-text:       #E8E8F0;
+  --xd-text-muted: #9898A8;
+}
+
+/* -- Utility: gradient action button -- */
+.xd-btn-action {
+  background: var(--xd-gradient-action);
+  color: white;
+  box-shadow: var(--xd-shadow-action-sm);
+  border-radius: var(--xd-radius-md);
+  transition: opacity 0.15s ease, transform 0.15s ease, box-shadow 0.15s ease;
+}
+.xd-btn-action:hover {
+  opacity: 0.92;
+  box-shadow: var(--xd-shadow-action-md);
+  transform: translateY(-1px);
+}
+.xd-btn-action:active {
+  transform: scale(0.97);
+}
+.xd-btn-action:disabled {
+  opacity: 0.5;
+  transform: none;
+  box-shadow: none;
+}
+
+/* -- Utility: logo glow effect -- */
+.xd-logo-glow {
+  position: relative;
+  display: inline-block;
+}
+.xd-logo-glow::before {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  border-radius: 30px; /* Match logo radius (28px) + padding */
+  background: var(--xd-gradient-action);
+  filter: blur(8px);
+  opacity: 0.5;
+  z-index: 0;
+}
+.xd-logo-glow > * {
+  position: relative;
+  z-index: 1;
+}

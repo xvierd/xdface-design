@@ -1,0 +1,827 @@
+---
+// xdface Design System — design.xdface.net
+---
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>xdface Design System</title>
+  <meta name="description" content="The xdface color palette, typography, and component system." />
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="/styles/global.css" />
+</head>
+<body>
+
+<!-- ══════════════════════════════════════════
+     TOP NAV
+══════════════════════════════════════════ -->
+<nav style="position:sticky; top:0; z-index:100; background:var(--xd-surface); border-bottom:1px solid var(--xd-border);">
+  <div style="max-width:900px; margin:0 auto; padding:0 16px; height:52px; display:flex; align-items:center; justify-content:space-between;">
+
+    <!-- Brand -->
+    <div style="display:flex; align-items:center; gap:10px; flex-shrink:0;">
+      <div class="logo-glow-wrap" style="width:28px; height:28px;">
+        <svg width="28" height="28" viewBox="0 0 28 28" fill="none" style="position:relative; z-index:1;">
+          <rect width="28" height="28" rx="7" fill="url(#logo-grad)"/>
+          <text x="14" y="19" text-anchor="middle" font-family="Inter,sans-serif" font-size="13" font-weight="800" fill="white">xd</text>
+          <defs>
+            <linearGradient id="logo-grad" x1="0" y1="0" x2="28" y2="28" gradientUnits="userSpaceOnUse">
+              <stop offset="0%" stop-color="#16A34A"/>
+              <stop offset="100%" stop-color="#EA580C"/>
+            </linearGradient>
+          </defs>
+        </svg>
+      </div>
+      <span class="gradient-text nav-brand-text" style="font-size:15px; font-weight:700; letter-spacing:-0.01em;">xdface</span>
+      <span class="nav-subtitle" style="font-size:13px; color:var(--xd-text-muted);">Design System</span>
+    </div>
+
+    <!-- Links + toggle -->
+    <div style="display:flex; align-items:center; gap:2px;">
+      <a href="#colors" class="nav-link" style="font-size:13px; color:var(--xd-text-muted); text-decoration:none; padding:6px 10px; border-radius:8px; white-space:nowrap;">Colors</a>
+      <a href="#type" class="nav-link nav-hide-sm" style="font-size:13px; color:var(--xd-text-muted); text-decoration:none; padding:6px 10px; border-radius:8px; white-space:nowrap;">Type</a>
+      <a href="#components" class="nav-link nav-hide-sm" style="font-size:13px; color:var(--xd-text-muted); text-decoration:none; padding:6px 10px; border-radius:8px; white-space:nowrap;">Components</a>
+      <a href="#logos" class="nav-link nav-hide-sm" style="font-size:13px; color:var(--xd-text-muted); text-decoration:none; padding:6px 10px; border-radius:8px; white-space:nowrap;">Logos</a>
+
+      <!-- Theme toggle: shows label on desktop, icon-only on mobile -->
+      <button id="theme-toggle" onclick="toggleTheme()" style="
+        display:flex; align-items:center; gap:6px; margin-left:4px;
+        background:var(--xd-surface-2); border:1px solid var(--xd-border);
+        border-radius:8px; padding:6px 12px; font-size:12px; font-weight:500;
+        color:var(--xd-text-muted); cursor:pointer; font-family:var(--xd-font-sans);
+        transition: border-color 0.15s;
+      ">
+        <span id="theme-icon" style="font-size:14px; line-height:1;">☀️</span>
+        <span id="theme-label" class="nav-hide-sm" style="white-space:nowrap;">Light</span>
+      </button>
+    </div>
+
+  </div>
+  <div style="height:2px; background:var(--xd-gradient-top-accent);"></div>
+</nav>
+
+
+<!-- ══════════════════════════════════════════
+     HERO
+══════════════════════════════════════════ -->
+<section style="
+  background: var(--xd-gradient-dark-chrome);
+  padding: 80px 24px 96px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+">
+  <!-- ambient glow -->
+  <div style="
+    position:absolute; top:40%; left:50%; transform:translate(-50%,-50%);
+    width:600px; height:300px; border-radius:50%;
+    background: radial-gradient(ellipse, rgba(22,163,74,0.12) 0%, transparent 70%);
+    pointer-events:none;
+  "></div>
+
+  <div style="position:relative; z-index:1; max-width:600px; margin:0 auto;">
+    <div style="display:inline-flex; align-items:center; gap:8px; background:rgba(22,163,74,0.1); border:1px solid rgba(22,163,74,0.25); border-radius:99px; padding:5px 14px; margin-bottom:28px;">
+      <div style="width:6px;height:6px;border-radius:50%;background:#16A34A;"></div>
+      <span style="font-size:12px; font-weight:600; color:#4ade80; letter-spacing:0.05em;">DESIGN SYSTEM v1</span>
+    </div>
+
+    <h1 style="
+      font-size:clamp(40px, 6vw, 64px);
+      font-weight:800;
+      letter-spacing:-0.03em;
+      line-height:1.05;
+      color:white;
+      margin-bottom:20px;
+    ">
+      The <span class="gradient-text">xdface</span><br/>color system
+    </h1>
+
+    <p style="font-size:17px; color:rgba(255,255,255,0.45); line-height:1.7; margin-bottom:40px;">
+      A single source of truth for every app in the xdface ecosystem.
+    </p>
+
+    <div class="hero-buttons" style="display:flex; gap:12px; justify-content:center; flex-wrap:wrap;">
+      <button class="xd-btn-action" style="font-size:14px; padding:12px 24px;">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+        tokens.css
+      </button>
+      <a href="https://xdface.net" target="_blank" style="text-decoration:none;">
+        <button class="xd-btn-ghost" style="color:rgba(255,255,255,0.7); border-color:rgba(255,255,255,0.1);">
+          xdface.net
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+        </button>
+      </a>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════
+     COLORS
+══════════════════════════════════════════ -->
+<div id="colors" class="divider"></div>
+<section class="section">
+  <p class="section-label">Colors</p>
+  <h2 class="section-title">Brand palette</h2>
+  <p class="section-desc">Green → orange is the action gradient. Everything interactive uses this range.</p>
+
+  <!-- Primary gradient -->
+  <div style="
+    height:80px;
+    border-radius: var(--xd-radius-lg);
+    background: var(--xd-gradient-action);
+    margin-bottom:12px;
+    display:flex; align-items:center; padding:0 24px;
+    justify-content:space-between;
+  ">
+    <span style="font-size:13px; font-weight:600; color:white;">Action Gradient</span>
+    <span class="token-pill" style="background:rgba(255,255,255,0.15); color:rgba(255,255,255,0.7);">--xd-gradient-action</span>
+  </div>
+  <div style="display:flex; gap:8px; margin-bottom:40px;">
+    <div style="flex:1; height:32px; border-radius:8px; background:#16A34A;"></div>
+    <div style="flex:1; height:32px; border-radius:8px; background:linear-gradient(90deg,#16A34A,#EA580C);"></div>
+    <div style="flex:1; height:32px; border-radius:8px; background:#EA580C;"></div>
+  </div>
+
+  <!-- Swatch grid -->
+  <div class="grid-4" style="margin-bottom:40px;">
+
+    <!-- Green action -->
+    <div>
+      <div style="height:64px; border-radius:10px 10px 0 0; background:#16A34A;"></div>
+      <div class="card" style="border-top:none; border-radius:0 0 10px 10px; padding:12px;">
+        <p style="font-size:13px; font-weight:600; color:var(--xd-text);">Action</p>
+        <p class="token-pill" style="margin-top:4px; display:inline-block;">--xd-action</p>
+        <p style="font-size:11px; color:var(--xd-text-muted); margin-top:4px; font-family:var(--xd-font-mono);">#16A34A</p>
+      </div>
+    </div>
+
+    <!-- Orange end -->
+    <div>
+      <div style="height:64px; border-radius:10px 10px 0 0; background:#EA580C;"></div>
+      <div class="card" style="border-top:none; border-radius:0 0 10px 10px; padding:12px;">
+        <p style="font-size:13px; font-weight:600; color:var(--xd-text);">Action End</p>
+        <p class="token-pill" style="margin-top:4px; display:inline-block;">--xd-action-end</p>
+        <p style="font-size:11px; color:var(--xd-text-muted); margin-top:4px; font-family:var(--xd-font-mono);">#EA580C</p>
+      </div>
+    </div>
+
+    <!-- XP -->
+    <div>
+      <div style="height:64px; border-radius:10px 10px 0 0; background:#F59E0B;"></div>
+      <div class="card" style="border-top:none; border-radius:0 0 10px 10px; padding:12px;">
+        <p style="font-size:13px; font-weight:600; color:var(--xd-text);">XP</p>
+        <p class="token-pill" style="margin-top:4px; display:inline-block;">--xd-xp</p>
+        <p style="font-size:11px; color:var(--xd-text-muted); margin-top:4px; font-family:var(--xd-font-mono);">#F59E0B</p>
+      </div>
+    </div>
+
+    <!-- Streak -->
+    <div>
+      <div style="height:64px; border-radius:10px 10px 0 0; background:#EF4444;"></div>
+      <div class="card" style="border-top:none; border-radius:0 0 10px 10px; padding:12px;">
+        <p style="font-size:13px; font-weight:600; color:var(--xd-text);">Streak</p>
+        <p class="token-pill" style="margin-top:4px; display:inline-block;">--xd-streak</p>
+        <p style="font-size:11px; color:var(--xd-text-muted); margin-top:4px; font-family:var(--xd-font-mono);">#EF4444</p>
+      </div>
+    </div>
+
+    <!-- Badge -->
+    <div>
+      <div style="height:64px; border-radius:10px 10px 0 0; background:#8B5CF6;"></div>
+      <div class="card" style="border-top:none; border-radius:0 0 10px 10px; padding:12px;">
+        <p style="font-size:13px; font-weight:600; color:var(--xd-text);">Badge</p>
+        <p class="token-pill" style="margin-top:4px; display:inline-block;">--xd-badge</p>
+        <p style="font-size:11px; color:var(--xd-text-muted); margin-top:4px; font-family:var(--xd-font-mono);">#8B5CF6</p>
+      </div>
+    </div>
+
+    <!-- Dark surface -->
+    <div>
+      <div style="height:64px; border-radius:10px 10px 0 0; background:#0F0F1A; border:1px solid var(--xd-border); border-bottom:none;"></div>
+      <div class="card" style="border-top:none; border-radius:0 0 10px 10px; padding:12px;">
+        <p style="font-size:13px; font-weight:600; color:var(--xd-text);">Dark 900</p>
+        <p class="token-pill" style="margin-top:4px; display:inline-block;">dark-900</p>
+        <p style="font-size:11px; color:var(--xd-text-muted); margin-top:4px; font-family:var(--xd-font-mono);">#0F0F1A</p>
+      </div>
+    </div>
+
+    <!-- Surface -->
+    <div>
+      <div style="height:64px; border-radius:10px 10px 0 0; background:var(--xd-surface); border:1px solid var(--xd-border); border-bottom:none;"></div>
+      <div class="card" style="border-top:none; border-radius:0 0 10px 10px; padding:12px;">
+        <p style="font-size:13px; font-weight:600; color:var(--xd-text);">Surface</p>
+        <p class="token-pill" style="margin-top:4px; display:inline-block;">--xd-surface</p>
+        <p style="font-size:11px; color:var(--xd-text-muted); margin-top:4px; font-family:var(--xd-font-mono);">theme-aware</p>
+      </div>
+    </div>
+
+    <!-- BG -->
+    <div>
+      <div style="height:64px; border-radius:10px 10px 0 0; background:var(--xd-bg); border:1px solid var(--xd-border); border-bottom:none;"></div>
+      <div class="card" style="border-top:none; border-radius:0 0 10px 10px; padding:12px;">
+        <p style="font-size:13px; font-weight:600; color:var(--xd-text);">Background</p>
+        <p class="token-pill" style="margin-top:4px; display:inline-block;">--xd-bg</p>
+        <p style="font-size:11px; color:var(--xd-text-muted); margin-top:4px; font-family:var(--xd-font-mono);">theme-aware</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Dark chrome gradient -->
+  <div class="card" style="overflow:hidden;">
+    <div style="
+      height:120px;
+      background: var(--xd-gradient-dark-chrome);
+      display:flex; align-items:center; padding:24px;
+      position:relative;
+    ">
+      <div style="position:absolute; top:0; left:0; right:0; height:2px; background:var(--xd-gradient-top-accent);"></div>
+      <div style="display:flex; align-items:center; gap:10px;">
+        <div class="logo-glow-wrap" style="width:32px;height:32px;">
+          <svg width="32" height="32" viewBox="0 0 32 32" fill="none" style="position:relative;z-index:1;">
+            <rect width="32" height="32" rx="8" fill="url(#lg2)"/>
+            <text x="16" y="21" text-anchor="middle" font-family="Inter" font-size="14" font-weight="800" fill="white">xd</text>
+            <defs><linearGradient id="lg2" x1="0" y1="0" x2="32" y2="32"><stop stop-color="#16A34A"/><stop offset="1" stop-color="#EA580C"/></linearGradient></defs>
+          </svg>
+        </div>
+        <div>
+          <p style="font-size:16px; font-weight:700; color:white;">xdface</p>
+          <p style="font-size:10px; color:rgba(255,255,255,0.3); letter-spacing:0.15em; text-transform:uppercase;">dark chrome</p>
+        </div>
+      </div>
+      <p style="margin-left:auto; font-size:12px; color:rgba(255,255,255,0.3);">Dark Chrome + logo glow</p>
+    </div>
+    <div style="padding:16px 24px; display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:8px;">
+      <p style="font-size:13px; color:var(--xd-text-muted);">Sidebar & header background gradient</p>
+      <span class="token-pill">--xd-gradient-dark-chrome</span>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════
+     TYPOGRAPHY
+══════════════════════════════════════════ -->
+<div id="type" class="divider"></div>
+<section class="section">
+  <p class="section-label">Typography</p>
+  <h2 class="section-title">Type scale</h2>
+  <p class="section-desc">Inter for UI, JetBrains Mono for code. Tight tracking on large sizes.</p>
+
+  <div class="card" style="padding:32px; margin-bottom:24px;">
+    <div style="display:flex; flex-direction:column; gap:24px;">
+      <div style="display:flex; align-items:baseline; gap:20px; flex-wrap:wrap;">
+        <p class="type-display" style="font-size:48px; font-weight:800; letter-spacing:-0.03em; color:var(--xd-text); line-height:1;">Display</p>
+        <div style="display:flex; gap:8px; flex-wrap:wrap;">
+          <span class="token-pill">48px</span>
+          <span class="token-pill">weight 800</span>
+          <span class="token-pill">tracking -0.03em</span>
+        </div>
+      </div>
+      <div style="display:flex; align-items:baseline; gap:20px; flex-wrap:wrap;">
+        <p style="font-size:32px; font-weight:700; letter-spacing:-0.02em; color:var(--xd-text); line-height:1;">Heading 1</p>
+        <div style="display:flex; gap:8px;">
+          <span class="token-pill">32px</span>
+          <span class="token-pill">weight 700</span>
+        </div>
+      </div>
+      <div style="display:flex; align-items:baseline; gap:20px; flex-wrap:wrap;">
+        <p style="font-size:24px; font-weight:700; letter-spacing:-0.015em; color:var(--xd-text); line-height:1;">Heading 2</p>
+        <div style="display:flex; gap:8px;">
+          <span class="token-pill">24px</span>
+          <span class="token-pill">weight 700</span>
+        </div>
+      </div>
+      <div style="display:flex; align-items:baseline; gap:20px; flex-wrap:wrap;">
+        <p style="font-size:17px; font-weight:400; color:var(--xd-text); line-height:1.7;">Body — Inter 17px, line-height 1.7. Used for lesson prose and content areas.</p>
+        <div style="display:flex; gap:8px;">
+          <span class="token-pill">17px</span>
+          <span class="token-pill">weight 400</span>
+        </div>
+      </div>
+      <div style="display:flex; align-items:baseline; gap:20px; flex-wrap:wrap;">
+        <p style="font-size:13px; font-weight:400; color:var(--xd-text-muted); line-height:1.5;">Caption / muted — 13px, color: text-muted</p>
+        <div style="display:flex; gap:8px;">
+          <span class="token-pill">13px</span>
+          <span class="token-pill">muted</span>
+        </div>
+      </div>
+      <div style="display:flex; align-items:baseline; gap:20px; flex-wrap:wrap;">
+        <p style="font-family:var(--xd-font-mono); font-size:14px; color:#4ade80; line-height:1;">const action = tokens.gradient.action</p>
+        <div style="display:flex; gap:8px;">
+          <span class="token-pill">JetBrains Mono</span>
+          <span class="token-pill">14px</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Gradient text showcase -->
+  <div class="card" style="padding:32px; text-align:center;">
+    <p style="font-size:40px; font-weight:800; letter-spacing:-0.03em;" class="gradient-text">
+      Learn · Build · Ship
+    </p>
+    <p style="font-size:13px; color:var(--xd-text-muted); margin-top:12px;">
+      Gradient text via <code style="font-family:var(--xd-font-mono); font-size:12px; background:var(--xd-surface-2); padding:2px 6px; border-radius:5px;">.gradient-text</code> utility
+    </p>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════
+     COMPONENTS
+══════════════════════════════════════════ -->
+<div id="components" class="divider"></div>
+<section class="section">
+  <p class="section-label">Components</p>
+  <h2 class="section-title">Buttons & badges</h2>
+  <p class="section-desc">Three button variants. Badges for gamification states.</p>
+
+  <!-- Buttons -->
+  <div class="card" style="padding:32px; margin-bottom:24px;">
+    <p style="font-size:11px; font-weight:600; letter-spacing:0.1em; text-transform:uppercase; color:var(--xd-text-muted); margin-bottom:20px;">Buttons</p>
+    <div style="display:flex; flex-wrap:wrap; gap:12px; align-items:center; margin-bottom:28px;">
+      <button class="xd-btn-action">Guardar nota</button>
+      <button class="xd-btn-action" style="padding:8px 16px; font-size:13px;">Pequeño</button>
+      <button class="xd-btn-action" style="padding:14px 28px; font-size:16px;">Grande</button>
+      <button class="xd-btn-action" style="opacity:0.5; cursor:not-allowed;" disabled>Disabled</button>
+    </div>
+    <div style="display:flex; flex-wrap:wrap; gap:12px; align-items:center; margin-bottom:28px;">
+      <button class="xd-btn-ghost">Cancelar</button>
+      <button class="xd-btn-ghost">Ver más</button>
+    </div>
+    <div style="display:flex; flex-wrap:wrap; gap:12px; align-items:center;">
+      <button class="xd-btn-subtle">Opciones</button>
+      <button class="xd-btn-subtle" style="color:#F59E0B; background:rgba(245,158,11,0.08); border-color:rgba(245,158,11,0.2);">+50 XP</button>
+      <button class="xd-btn-subtle" style="color:#8B5CF6; background:rgba(139,92,246,0.08); border-color:rgba(139,92,246,0.2);">Logro</button>
+    </div>
+  </div>
+
+  <!-- Badges -->
+  <div class="card" style="padding:32px; margin-bottom:24px;">
+    <p style="font-size:11px; font-weight:600; letter-spacing:0.1em; text-transform:uppercase; color:var(--xd-text-muted); margin-bottom:20px;">Badges</p>
+    <div style="display:flex; flex-wrap:wrap; gap:10px; align-items:center;">
+      <span class="xd-badge" style="background:rgba(22,163,74,0.12); color:#4ade80; border:1px solid rgba(22,163,74,0.25);">
+        <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+        Activo
+      </span>
+      <span class="xd-badge" style="background:rgba(245,158,11,0.12); color:#F59E0B; border:1px solid rgba(245,158,11,0.25);">
+        <svg width="10" height="10" viewBox="0 0 24 24" fill="#F59E0B"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+        1,240 XP
+      </span>
+      <span class="xd-badge" style="background:rgba(239,68,68,0.12); color:#EF4444; border:1px solid rgba(239,68,68,0.25);">
+        <svg width="10" height="10" viewBox="0 0 24 24" fill="#EF4444"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"/></svg>
+        7 días
+      </span>
+      <span class="xd-badge" style="background:rgba(139,92,246,0.12); color:#8B5CF6; border:1px solid rgba(139,92,246,0.25);">
+        <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#8B5CF6" stroke-width="2"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/><path d="M4 22h16"/><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"/><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"/><path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"/></svg>
+        Nivel 4
+      </span>
+      <span class="xd-badge" style="background:rgba(96,165,250,0.12); color:#60A5FA; border:1px solid rgba(96,165,250,0.2);">
+        Beta
+      </span>
+    </div>
+  </div>
+
+  <!-- FAB -->
+  <div class="grid-2" style="gap:16px; margin-bottom:24px;">
+    <div class="card" style="padding:32px; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:16px; min-height:160px;">
+      <p style="font-size:11px; font-weight:600; letter-spacing:0.1em; text-transform:uppercase; color:var(--xd-text-muted); align-self:flex-start;">FAB Button</p>
+      <div style="position:relative; display:inline-flex; align-items:center; justify-content:center;">
+        <span class="fab-ring" style="position:absolute; inset:0; border-radius:50%; background:rgba(22,163,74,0.4);"></span>
+        <button style="
+          width:56px; height:56px; border-radius:50%; border:none; cursor:pointer;
+          background: var(--xd-gradient-action);
+          box-shadow: 0 8px 32px rgba(22,163,74,0.35);
+          display:flex; align-items:center; justify-content:center;
+          position:relative; z-index:1;
+          transition: transform 0.2s ease;
+        " onmouseover="this.style.transform='scale(1.12)'" onmouseout="this.style.transform='scale(1)'">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+        </button>
+      </div>
+      <p style="font-size:12px; color:var(--xd-text-muted);">Nueva nota</p>
+    </div>
+
+    <!-- Card hover -->
+    <div class="card" style="padding:32px; display:flex; flex-direction:column; gap:12px;">
+      <p style="font-size:11px; font-weight:600; letter-spacing:0.1em; text-transform:uppercase; color:var(--xd-text-muted);">Card hover lift</p>
+      <div style="
+        padding:16px; border:1px solid var(--xd-border); border-radius:12px;
+        cursor:pointer;
+        transition: box-shadow 0.2s ease, transform 0.2s ease, border-color 0.2s ease;
+      "
+        onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 8px 24px rgba(0,0,0,0.12)'; this.style.borderColor='rgba(22,163,74,0.25)'"
+        onmouseout="this.style.transform=''; this.style.boxShadow=''; this.style.borderColor='var(--xd-border)'"
+      >
+        <p style="font-size:14px; font-weight:600; color:var(--xd-text); margin-bottom:4px;">Nota de ejemplo</p>
+        <p style="font-size:12px; color:var(--xd-text-muted);">Hover para ver el efecto lift</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Sidebar preview -->
+  <div class="card" style="overflow:hidden; margin-bottom:24px;">
+    <p style="padding:16px 24px 0; font-size:11px; font-weight:600; letter-spacing:0.1em; text-transform:uppercase; color:var(--xd-text-muted);">Sidebar chrome</p>
+    <div class="sidebar-preview" style="display:flex; gap:0; margin:16px;">
+      <div style="
+        width:220px; border-radius:12px; overflow:hidden;
+        background: var(--xd-gradient-dark-chrome);
+        flex-shrink:0;
+      ">
+        <div style="height:2px; background:var(--xd-gradient-top-accent);"></div>
+        <div style="padding:14px 12px 12px;">
+          <!-- logo -->
+          <div style="display:flex; align-items:center; gap:8px; padding:0 4px 14px;">
+            <div class="logo-glow-wrap" style="width:26px;height:26px;">
+              <svg width="26" height="26" viewBox="0 0 26 26" fill="none" style="position:relative;z-index:1;">
+                <rect width="26" height="26" rx="6" fill="url(#lg3)"/>
+                <text x="13" y="18" text-anchor="middle" font-family="Inter" font-size="11" font-weight="800" fill="white">xd</text>
+                <defs><linearGradient id="lg3" x1="0" y1="0" x2="26" y2="26"><stop stop-color="#16A34A"/><stop offset="1" stop-color="#EA580C"/></linearGradient></defs>
+              </svg>
+            </div>
+            <div>
+              <p style="font-size:13px; font-weight:700; background:var(--xd-gradient-action); -webkit-background-clip:text; -webkit-text-fill-color:transparent;">xdface</p>
+              <p style="font-size:9px; color:rgba(255,255,255,0.3); letter-spacing:0.15em; text-transform:uppercase;">app</p>
+            </div>
+          </div>
+          <!-- nav items -->
+          {[
+            { label: 'Dashboard', active: false },
+            { label: 'Notas', active: true },
+            { label: 'Cursos', active: false },
+            { label: 'Progreso', active: false },
+          ].map(item => (
+            <div style={`
+              display:flex; align-items:center; gap:8px;
+              padding:8px 10px; border-radius:10px; margin-bottom:2px;
+              font-size:13px; font-weight:500; cursor:pointer;
+              ${item.active
+                ? 'background:linear-gradient(135deg,rgba(22,163,74,0.25),rgba(234,88,12,0.18)); color:white; box-shadow:0 0 0 1px rgba(22,163,74,0.25);'
+                : 'color:rgba(255,255,255,0.35);'
+              }
+            `}>
+              <div style={`width:5px;height:5px;border-radius:50%;background:${item.active?'#4ade80':'rgba(255,255,255,0.2)'};`}></div>
+              {item.label}
+            </div>
+          ))}
+        </div>
+      </div>
+      <div style="flex:1; padding:16px 20px;">
+        <p style="font-size:12px; color:var(--xd-text-muted); line-height:1.8;">
+          Deep dark gradient background.<br/>
+          Gradient accent line at top.<br/>
+          Logo glow effect (blur halo).<br/>
+          Active nav: gradient pill + glow.<br/>
+          Inactive: white/35% opacity.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════
+     LOGOS & ICONS
+══════════════════════════════════════════ -->
+<div id="logos" class="divider"></div>
+<section class="section">
+  <p class="section-label">Logos &amp; Icons</p>
+  <h2 class="section-title">App favicons</h2>
+  <p class="section-desc">Two variants of the xdface mark — dark and light.</p>
+
+  <div class="grid-2" style="gap:16px; margin-bottom:24px;">
+
+    <!-- Dark variant -->
+    <div class="card" style="padding:32px; display:flex; flex-direction:column; gap:24px;">
+      <div style="display:flex; align-items:center; justify-content:space-between;">
+        <div>
+          <p style="font-size:13px; font-weight:600; color:var(--xd-text); margin-bottom:2px;">Dark variant</p>
+          <p style="font-size:12px; color:var(--xd-text-muted);">Dark backgrounds</p>
+        </div>
+        <span class="token-pill">dark-bg</span>
+      </div>
+      <!-- Sizes -->
+      <div class="favicon-sizes" style="display:flex; align-items:flex-end; gap:20px; flex-wrap:wrap;">
+        {[16, 24, 32, 48, 64, 128].map(size => (
+          <div style="display:flex; flex-direction:column; align-items:center; gap:8px;">
+            <svg xmlns="http://www.w3.org/2000/svg" width={size} height={size} viewBox="0 0 128 128">
+              <rect width="128" height="128" rx="24" fill="#1A1A2E"/>
+              <g transform="rotate(-3 64 64)">
+                <line x1="28" y1="30" x2="50" y2="52" stroke="#FFFFFF" stroke-width="10" stroke-linecap="round"/>
+                <line x1="50" y1="30" x2="28" y2="52" stroke="#FFFFFF" stroke-width="10" stroke-linecap="round"/>
+                <line x1="78" y1="30" x2="100" y2="52" stroke="#FFFFFF" stroke-width="10" stroke-linecap="round"/>
+                <line x1="100" y1="30" x2="78" y2="52" stroke="#FFFFFF" stroke-width="10" stroke-linecap="round"/>
+                <path d="M 22 72 C 36 102 92 108 108 72" stroke="#FFFFFF" stroke-width="8" stroke-linecap="round" fill="none"/>
+              </g>
+            </svg>
+            <span style="font-family:var(--xd-font-mono); font-size:10px; color:var(--xd-text-muted);">{size}</span>
+          </div>
+        ))}
+      </div>
+      <!-- With glow (as used in sidebar) -->
+      <div style="padding:20px; border-radius:12px; background:linear-gradient(180deg,#0F0F1A 0%,#13132A 100%); display:flex; align-items:center; gap:12px;">
+        <div class="logo-glow-wrap" style="width:40px; height:40px; flex-shrink:0;">
+          <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 128 128" style="position:relative;z-index:1;">
+            <rect width="128" height="128" rx="24" fill="#1A1A2E"/>
+            <g transform="rotate(-3 64 64)">
+              <line x1="28" y1="30" x2="50" y2="52" stroke="#FFFFFF" stroke-width="10" stroke-linecap="round"/>
+              <line x1="50" y1="30" x2="28" y2="52" stroke="#FFFFFF" stroke-width="10" stroke-linecap="round"/>
+              <line x1="78" y1="30" x2="100" y2="52" stroke="#FFFFFF" stroke-width="10" stroke-linecap="round"/>
+              <line x1="100" y1="30" x2="78" y2="52" stroke="#FFFFFF" stroke-width="10" stroke-linecap="round"/>
+              <path d="M 22 72 C 36 102 92 108 108 72" stroke="#FFFFFF" stroke-width="8" stroke-linecap="round" fill="none"/>
+            </g>
+          </svg>
+        </div>
+        <div>
+          <p style="font-size:14px; font-weight:700; color:white; line-height:1;">xdface</p>
+          <p style="font-size:10px; color:rgba(255,255,255,0.3); letter-spacing:0.15em; text-transform:uppercase; margin-top:2px;">dark</p>
+        </div>
+        <span style="margin-left:auto; font-size:11px; color:rgba(255,255,255,0.3);">+ logo glow</span>
+      </div>
+    </div>
+
+    <!-- Light variant -->
+    <div class="card" style="padding:32px; display:flex; flex-direction:column; gap:24px;">
+      <div style="display:flex; align-items:center; justify-content:space-between;">
+        <div>
+          <p style="font-size:13px; font-weight:600; color:var(--xd-text); margin-bottom:2px;">Light variant</p>
+          <p style="font-size:12px; color:var(--xd-text-muted);">Light backgrounds</p>
+        </div>
+        <span class="token-pill">light-bg</span>
+      </div>
+      <!-- Sizes -->
+      <div class="favicon-sizes" style="display:flex; align-items:flex-end; gap:20px; flex-wrap:wrap;">
+        {[16, 24, 32, 48, 64, 128].map(size => (
+          <div style="display:flex; flex-direction:column; align-items:center; gap:8px;">
+            <svg xmlns="http://www.w3.org/2000/svg" width={size} height={size} viewBox="0 0 128 128">
+              <defs>
+                <linearGradient id={`lib-g-${size}`} x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stop-color="#16A34A"/>
+                  <stop offset="100%" stop-color="#EA580C"/>
+                </linearGradient>
+              </defs>
+              <rect width="128" height="128" rx="28" fill="#FFFFFF"/>
+              <rect width="126" height="126" x="1" y="1" rx="27" fill="none" stroke="#E5E7EB" stroke-width="2"/>
+              <g transform="rotate(-3 64 64)">
+                <line x1="28" y1="30" x2="50" y2="52" stroke="#16A34A" stroke-width="10" stroke-linecap="round"/>
+                <line x1="50" y1="30" x2="28" y2="52" stroke="#16A34A" stroke-width="10" stroke-linecap="round"/>
+                <line x1="78" y1="30" x2="100" y2="52" stroke="#EA580C" stroke-width="10" stroke-linecap="round"/>
+                <line x1="100" y1="30" x2="78" y2="52" stroke="#EA580C" stroke-width="10" stroke-linecap="round"/>
+                <path d={`M 22 72 C 36 102 92 108 108 72`} stroke={`url(#lib-g-${size})`} stroke-width="8" stroke-linecap="round" fill="none"/>
+              </g>
+            </svg>
+            <span style="font-family:var(--xd-font-mono); font-size:10px; color:var(--xd-text-muted);">{size}</span>
+          </div>
+        ))}
+      </div>
+      <!-- On light bg preview -->
+      <div style="padding:20px; border-radius:12px; background:#F8F8FA; border:1px solid #E5E7EB; display:flex; align-items:center; gap:12px;">
+        <div class="logo-glow-wrap-light" style="width:40px; height:40px; flex-shrink:0;">
+          <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 128 128" style="position:relative;z-index:1;">
+            <defs>
+              <linearGradient id="lib-preview-g" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#16A34A"/>
+                <stop offset="100%" stop-color="#EA580C"/>
+              </linearGradient>
+            </defs>
+            <rect width="128" height="128" rx="28" fill="#FFFFFF"/>
+            <rect width="126" height="126" x="1" y="1" rx="27" fill="none" stroke="#E5E7EB" stroke-width="2"/>
+            <g transform="rotate(-3 64 64)">
+              <line x1="28" y1="30" x2="50" y2="52" stroke="#16A34A" stroke-width="10" stroke-linecap="round"/>
+              <line x1="50" y1="30" x2="28" y2="52" stroke="#16A34A" stroke-width="10" stroke-linecap="round"/>
+              <line x1="78" y1="30" x2="100" y2="52" stroke="#EA580C" stroke-width="10" stroke-linecap="round"/>
+              <line x1="100" y1="30" x2="78" y2="52" stroke="#EA580C" stroke-width="10" stroke-linecap="round"/>
+              <path d="M 22 72 C 36 102 92 108 108 72" stroke="url(#lib-preview-g)" stroke-width="8" stroke-linecap="round" fill="none"/>
+            </g>
+          </svg>
+        </div>
+        <div>
+          <p style="font-size:14px; font-weight:700; color:#111118; line-height:1;">xdface</p>
+          <p style="font-size:10px; color:#707080; letter-spacing:0.15em; text-transform:uppercase; margin-top:2px;">light</p>
+        </div>
+        <span style="margin-left:auto; font-size:11px; color:#707080;">+ logo glow</span>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Side by side comparison on both backgrounds -->
+  <div class="card" style="overflow:hidden;">
+    <div style="padding:14px 24px; border-bottom:1px solid var(--xd-border); display:flex; align-items:center; justify-content:space-between;">
+      <p style="font-size:12px; font-weight:600; color:var(--xd-text);">Same mark, two contexts</p>
+      <span class="token-pill">app-specific variants</span>
+    </div>
+    <div style="display:grid; grid-template-columns:1fr 1fr;">
+      <div style="padding:32px; display:flex; flex-direction:column; align-items:center; gap:12px; background:linear-gradient(135deg,#0F0F1A,#1A1A2E);">
+        <svg xmlns="http://www.w3.org/2000/svg" width="80" height="80" viewBox="0 0 128 128">
+          <rect width="128" height="128" rx="24" fill="#1A1A2E"/>
+          <g transform="rotate(-3 64 64)">
+            <line x1="28" y1="30" x2="50" y2="52" stroke="#FFFFFF" stroke-width="10" stroke-linecap="round"/>
+            <line x1="50" y1="30" x2="28" y2="52" stroke="#FFFFFF" stroke-width="10" stroke-linecap="round"/>
+            <line x1="78" y1="30" x2="100" y2="52" stroke="#FFFFFF" stroke-width="10" stroke-linecap="round"/>
+            <line x1="100" y1="30" x2="78" y2="52" stroke="#FFFFFF" stroke-width="10" stroke-linecap="round"/>
+            <path d="M 22 72 C 36 102 92 108 108 72" stroke="#FFFFFF" stroke-width="8" stroke-linecap="round" fill="none"/>
+          </g>
+        </svg>
+        <p style="font-size:12px; color:rgba(255,255,255,0.4);">dark</p>
+      </div>
+      <div style="padding:32px; display:flex; flex-direction:column; align-items:center; gap:12px; background:#F2F2F5;">
+        <div class="logo-glow-wrap-light" style="width:80px; height:80px;">
+          <svg xmlns="http://www.w3.org/2000/svg" width="80" height="80" viewBox="0 0 128 128" style="position:relative;z-index:1;">
+            <defs>
+              <linearGradient id="cmp-g" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#16A34A"/>
+                <stop offset="100%" stop-color="#EA580C"/>
+              </linearGradient>
+            </defs>
+            <rect width="128" height="128" rx="28" fill="#FFFFFF"/>
+            <rect width="126" height="126" x="1" y="1" rx="27" fill="none" stroke="#E5E7EB" stroke-width="2"/>
+            <g transform="rotate(-3 64 64)">
+              <line x1="28" y1="30" x2="50" y2="52" stroke="#16A34A" stroke-width="10" stroke-linecap="round"/>
+              <line x1="50" y1="30" x2="28" y2="52" stroke="#16A34A" stroke-width="10" stroke-linecap="round"/>
+              <line x1="78" y1="30" x2="100" y2="52" stroke="#EA580C" stroke-width="10" stroke-linecap="round"/>
+              <line x1="100" y1="30" x2="78" y2="52" stroke="#EA580C" stroke-width="10" stroke-linecap="round"/>
+              <path d="M 22 72 C 36 102 92 108 108 72" stroke="url(#cmp-g)" stroke-width="8" stroke-linecap="round" fill="none"/>
+            </g>
+          </svg>
+        </div>
+        <p style="font-size:12px; color:#707080;">light</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════
+     EFFECTS
+══════════════════════════════════════════ -->
+<div class="divider"></div>
+<section class="section">
+  <p class="section-label">Effects</p>
+  <h2 class="section-title">Shadows & glows</h2>
+  <p class="section-desc">Green-tinted shadows reinforce the brand on every interactive element.</p>
+
+  <div class="grid-3">
+    <div class="card" style="padding:28px; display:flex; flex-direction:column; align-items:center; gap:16px; text-align:center;">
+      <div style="
+        width:48px; height:48px; border-radius:12px;
+        background:var(--xd-gradient-action);
+        box-shadow: var(--xd-shadow-action-sm);
+      "></div>
+      <div>
+        <p style="font-size:13px; font-weight:600; color:var(--xd-text); margin-bottom:4px;">Action SM</p>
+        <span class="token-pill">--xd-shadow-action-sm</span>
+      </div>
+    </div>
+    <div class="card" style="padding:28px; display:flex; flex-direction:column; align-items:center; gap:16px; text-align:center;">
+      <div style="
+        width:48px; height:48px; border-radius:12px;
+        background:var(--xd-gradient-action);
+        box-shadow: var(--xd-shadow-action-md);
+      "></div>
+      <div>
+        <p style="font-size:13px; font-weight:600; color:var(--xd-text); margin-bottom:4px;">Action MD</p>
+        <span class="token-pill">--xd-shadow-action-md</span>
+      </div>
+    </div>
+    <div class="card" style="padding:28px; display:flex; flex-direction:column; align-items:center; gap:16px; text-align:center;">
+      <div style="
+        width:48px; height:48px; border-radius:12px;
+        background:var(--xd-gradient-action);
+        box-shadow: var(--xd-shadow-action-glow);
+      "></div>
+      <div>
+        <p style="font-size:13px; font-weight:600; color:var(--xd-text); margin-bottom:4px;">Action Glow</p>
+        <span class="token-pill">--xd-shadow-action-glow</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Border radius scale -->
+  <div style="margin-top:40px;">
+    <p style="font-size:11px; font-weight:600; letter-spacing:0.1em; text-transform:uppercase; color:var(--xd-text-muted); margin-bottom:20px;">Border radius scale</p>
+    <div style="display:flex; gap:16px; align-items:flex-end; flex-wrap:wrap;">
+      {[
+        { label: 'sm', radius: '8px', size: 40 },
+        { label: 'md', radius: '12px', size: 52 },
+        { label: 'lg', radius: '16px', size: 64 },
+        { label: 'xl', radius: '20px', size: 76 },
+        { label: 'full', radius: '9999px', size: 52 },
+      ].map(r => (
+        <div style="display:flex; flex-direction:column; align-items:center; gap:10px;">
+          <div style={`width:${r.size}px; height:${r.size}px; background:var(--xd-gradient-action); border-radius:${r.radius};`}></div>
+          <span class="token-pill">{r.label}</span>
+          <p style="font-size:11px; color:var(--xd-text-muted); font-family:var(--xd-font-mono);">{r.radius}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════
+     USAGE
+══════════════════════════════════════════ -->
+<div class="divider"></div>
+<section class="section">
+  <p class="section-label">Usage</p>
+  <h2 class="section-title">Import tokens</h2>
+  <p class="section-desc">One file. Three ways to consume it.</p>
+
+  <div class="grid-3" style="gap:16px;">
+    <div class="card" style="overflow:hidden;">
+      <div style="padding:14px 18px; background:var(--xd-surface-2); border-bottom:1px solid var(--xd-border);">
+        <p style="font-size:12px; font-weight:600; color:var(--xd-text);">CSS — any app</p>
+      </div>
+      <pre style="padding:18px; font-family:var(--xd-font-mono); font-size:12px; color:#4ade80; line-height:1.8; overflow-x:auto;"><code>@import 'tokens.css';
+
+.btn &#123;
+  background:
+    var(--xd-gradient-action);
+  box-shadow:
+    var(--xd-shadow-action-sm);
+&#125;</code></pre>
+    </div>
+
+    <div class="card" style="overflow:hidden;">
+      <div style="padding:14px 18px; background:var(--xd-surface-2); border-bottom:1px solid var(--xd-border);">
+        <p style="font-size:12px; font-weight:600; color:var(--xd-text);">TypeScript</p>
+      </div>
+      <pre style="padding:18px; font-family:var(--xd-font-mono); font-size:12px; color:#4ade80; line-height:1.8; overflow-x:auto;"><code>import &#123; tokens &#125;
+  from '../design/tokens';
+
+style=&#123;&#123;
+  background:
+    tokens.gradient.action,
+&#125;&#125;</code></pre>
+    </div>
+
+    <div class="card" style="overflow:hidden;">
+      <div style="padding:14px 18px; background:var(--xd-surface-2); border-bottom:1px solid var(--xd-border);">
+        <p style="font-size:12px; font-weight:600; color:var(--xd-text);">Tailwind 4</p>
+      </div>
+      <pre style="padding:18px; font-family:var(--xd-font-mono); font-size:12px; color:#4ade80; line-height:1.8; overflow-x:auto;"><code>@theme &#123;
+  --color-action:
+    #16A34A;
+  --color-action-end:
+    #EA580C;
+&#125;</code></pre>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════
+     FOOTER
+══════════════════════════════════════════ -->
+<div class="divider"></div>
+<footer style="
+  background: var(--xd-gradient-dark-chrome);
+  padding: 48px 24px;
+  text-align: center;
+  position: relative;
+">
+  <div style="height:2px; position:absolute; top:0; left:0; right:0; background:var(--xd-gradient-top-accent);"></div>
+  <p style="font-size:14px; color:rgba(255,255,255,0.3); margin-bottom:8px;">xdface Design System</p>
+  <p style="font-size:12px; color:rgba(255,255,255,0.2);">
+    <a href="https://xdface.net" style="color:rgba(255,255,255,0.25); text-decoration:none;" onmouseover="this.style.color='rgba(255,255,255,0.5)'" onmouseout="this.style.color='rgba(255,255,255,0.25)'">xdface.net</a>
+  </p>
+</footer>
+
+
+<!-- ── Theme toggle script ── -->
+<script>
+  // Init from localStorage
+  const saved = localStorage.getItem('xd-theme') || 'dark';
+  document.documentElement.setAttribute('data-theme', saved);
+  updateToggle(saved);
+
+  function toggleTheme() {
+    const current = document.documentElement.getAttribute('data-theme');
+    const next = current === 'dark' ? 'light' : 'dark';
+    document.documentElement.setAttribute('data-theme', next);
+    localStorage.setItem('xd-theme', next);
+    updateToggle(next);
+  }
+
+  function updateToggle(theme) {
+    const icon = document.getElementById('theme-icon');
+    const label = document.getElementById('theme-label');
+    if (!icon || !label) return;
+    if (theme === 'dark') {
+      icon.textContent = '☀️';
+      label.textContent = 'Light';
+    } else {
+      icon.textContent = '🌙';
+      label.textContent = 'Dark';
+    }
+  }
+
+  // Expose for onclick
+  window.toggleTheme = toggleTheme;
+</script>
+
+</body>
+</html>
