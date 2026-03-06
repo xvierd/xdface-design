@@ -4,3 +4,4 @@ web/dist/
 web/.astro/
 .DS_Store
 *.log
+dist/

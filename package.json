@@ -1,0 +1,33 @@
+{
+  "name": "@xdface/tokens",
+  "version": "1.0.0",
+  "description": "xdface Design System — CSS variables, TypeScript constants, and Tailwind preset",
+  "license": "MIT",
+  "main": "./dist/tokens.js",
+  "module": "./dist/tokens.mjs",
+  "types": "./dist/tokens.d.ts",
+  "exports": {
+    ".": {
+      "types":   "./dist/tokens.d.ts",
+      "import":  "./dist/tokens.mjs",
+      "require": "./dist/tokens.js"
+    },
+    "./css":     "./tokens.css",
+    "./json":    "./tokens.json",
+    "./tailwind": "./tailwind.preset.js"
+  },
+  "files": [
+    "dist",
+    "tokens.css",
+    "tokens.json",
+    "tailwind.preset.js"
+  ],
+  "scripts": {
+    "build":          "tsup tokens.ts --format esm,cjs --dts --clean",
+    "prepublishOnly": "npm run build"
+  },
+  "devDependencies": {
+    "tsup":       "^8.0.0",
+    "typescript": "^5.0.0"
+  }
+}
