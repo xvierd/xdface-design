@@ -6,7 +6,7 @@
  *
  * Usage:
  *   // tailwind.config.js
- *   const xdfacePreset = require('./tailwind.preset.js');
+ *   const xdfacePreset = require('@xdface/tokens/tailwind');
  *   module.exports = { presets: [xdfacePreset], ... };
  */
 
@@ -34,6 +34,7 @@ const xdfacePreset = {
           'green-400':  'var(--xd-green-400)',
           'green-500':  'var(--xd-green-500)',
           'green-600':  'var(--xd-green-600)',
+          'green-700':  'var(--xd-green-700)',
           'orange-400': 'var(--xd-orange-400)',
           'orange-500': 'var(--xd-orange-500)',
           'orange-600': 'var(--xd-orange-600)',
@@ -45,22 +46,35 @@ const xdfacePreset = {
           'dark-800': 'var(--xd-dark-800)',
           'dark-700': 'var(--xd-dark-700)',
           'dark-600': 'var(--xd-dark-600)',
-          // Theme-aware
+          // Flat theme-aware
           bg:           'var(--xd-bg)',
           surface:      'var(--xd-surface)',
           'surface-2':  'var(--xd-surface-2)',
           border:       'var(--xd-border)',
           text:         'var(--xd-text)',
           'text-muted': 'var(--xd-text-muted)',
+          // App surface elevation
+          deep:    'var(--xd-deep)',
+          base:    'var(--xd-base)',
+          raised:  'var(--xd-raised)',
+          chrome:  'var(--xd-chrome)',
+          fg:      'var(--xd-fg)',
+          'fg-2':  'var(--xd-fg-2)',
+          'fg-3':  'var(--xd-fg-3)',
+          'fg-4':  'var(--xd-fg-4)',
+          bd:      'var(--xd-bd)',
+          'bd-2':  'var(--xd-bd-2)',
+          gl:      'var(--xd-gl)',
         },
       },
 
       // ── Background images (gradients) ───────────────────
       backgroundImage: {
-        'xd-action':       'linear-gradient(135deg, #16A34A 0%, #EA580C 100%)',
-        'xd-action-hover': 'linear-gradient(135deg, #15803D 0%, #C2410C 100%)',
-        'xd-dark-chrome':  'linear-gradient(180deg, #0F0F1A 0%, #13132A 60%, #0D0D18 100%)',
-        'xd-top-accent':   'linear-gradient(to right, #16A34A, #EA580C)',
+        'xd-action':       'var(--xd-gradient-action)',
+        'xd-action-hover': 'var(--xd-gradient-action-hover)',
+        'xd-dark-chrome':  'var(--xd-gradient-dark-chrome)',
+        'xd-top-accent':   'var(--xd-gradient-top-accent)',
+        'xd-sidebar':      'var(--xd-sidebar-bg)',
       },
 
       // ── Font families ────────────────────────────────────
@@ -71,33 +85,38 @@ const xdfacePreset = {
 
       // ── Border radius ────────────────────────────────────
       borderRadius: {
-        'xd-sm':   '8px',
-        'xd-md':   '12px',
-        'xd-lg':   '16px',
-        'xd-xl':   '20px',
-        'xd-full': '9999px',
+        'xd-sm':   'var(--xd-radius-sm)',
+        'xd-md':   'var(--xd-radius-md)',
+        'xd-lg':   'var(--xd-radius-lg)',
+        'xd-xl':   'var(--xd-radius-xl)',
+        'xd-2xl':  'var(--xd-radius-2xl)',
+        'xd-full': 'var(--xd-radius-full)',
       },
 
       // ── Spacing ──────────────────────────────────────────
       spacing: {
-        'xd-1': '4px',
-        'xd-2': '8px',
-        'xd-3': '12px',
-        'xd-4': '16px',
-        'xd-5': '24px',
-        'xd-6': '32px',
-        'xd-7': '48px',
-        'xd-8': '64px',
-        'xd-9': '96px',
+        'xd-1': 'var(--xd-space-1)',
+        'xd-2': 'var(--xd-space-2)',
+        'xd-3': 'var(--xd-space-3)',
+        'xd-4': 'var(--xd-space-4)',
+        'xd-5': 'var(--xd-space-5)',
+        'xd-6': 'var(--xd-space-6)',
+        'xd-7': 'var(--xd-space-7)',
+        'xd-8': 'var(--xd-space-8)',
+        'xd-9': 'var(--xd-space-9)',
       },
 
       // ── Box shadow ───────────────────────────────────────
       boxShadow: {
-        'xd-action-sm':   '0 4px 16px rgba(22, 163, 74, 0.25)',
-        'xd-action-md':   '0 6px 24px rgba(22, 163, 74, 0.35)',
-        'xd-action-glow': '0 0 32px rgba(22, 163, 74, 0.4)',
+        'xd-action-sm':   'var(--xd-shadow-action-sm)',
+        'xd-action-md':   'var(--xd-shadow-action-md)',
+        'xd-action-glow': 'var(--xd-shadow-action-glow)',
         'xd-error':       '0 0 0 3px rgba(239, 68, 68, 0.15)',
-        'xd-focus':       '0 0 0 3px rgba(22, 163, 74, 0.15)',
+        'xd-focus':       'var(--xd-focus-ring)',
+        'xd-soft-sm':     'var(--xd-soft-shadow-sm)',
+        'xd-soft-md':     'var(--xd-soft-shadow-md)',
+        'xd-soft-lg':     'var(--xd-soft-shadow-lg)',
+        'xd-soft-ring':   'var(--xd-soft-ring)',
         'xd-xs':          'var(--xd-shadow-xs)',
         'xd-sm':          'var(--xd-shadow-sm)',
         'xd-md':          'var(--xd-shadow-md)',

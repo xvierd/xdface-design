@@ -1,95 +1,102 @@
 # xdface Design System
 
-Source of truth for colors, typography, spacing, and visual identity across all xdface apps.
+Source of truth for colors, typography, spacing, surfaces, and visual identity across all xdface apps.
+
+**Package:** `@xdface/tokens` · **v0.2.0**
 
 ## Files
 
 | File | Purpose | Consumers |
 |------|---------|-----------|
 | `tokens.json` | Canonical token definitions | Humans (edit this first) |
-| `tokens.css` | CSS custom properties (`--xd-*`) | All apps via `@import` |
+| `tokens.css` | CSS custom properties (`--xd-*`) + utilities | All apps via `@import '@xdface/tokens/css'` |
 | `tokens.ts` | TypeScript constants | Vault (React), any TS code |
+| `tailwind.preset.js` | Tailwind theme mapping | Tailwind v3/v4 apps |
 | `logo/` | Logo SVGs, favicon specs | All apps |
 
 ## Design Philosophy
 
-The xdface brand is built on a **green-to-orange gradient** (`#16A34A` to `#EA580C`) used as the primary action color across all apps. This gradient appears on buttons, the top accent bar, and the logo glow effect.
+The xdface brand is built on a **green-to-orange gradient** (`#16A34A` → `#EA580C`) for primary actions. Navigation and chrome use elevated surfaces with a dark chrome gradient when needed.
 
-Navigation and chrome surfaces use a **dark gradient** (`#0F0F1A` to `#0D0D18`) that provides depth without competing with content.
+Apps paint UI with an **elevation surface scale** (not only flat bg/surface):
 
-Gamification elements have dedicated colors: amber for XP, red for streaks, purple for badges.
+```
+--xd-deep     page background
+--xd-base     cards / primary surfaces
+--xd-raised   elevated panels
+--xd-chrome   header / sidebar
+--xd-fg … --xd-fg-4   text hierarchy
+--xd-bd / --xd-bd-2   border hierarchy
+--xd-soft-shadow-*    layered brand-tinted shadows
+```
 
-## Token Naming
+Backward-compatible aliases: `--xds-deep`, `--xds-base`, `--xds-fg`, etc. map to the same values.
 
-All CSS custom properties use the `--xd-` prefix to avoid conflicts with Tailwind or other frameworks:
+Gamification: amber XP, red streaks, purple badges.
 
-- `--xd-action` -- primary action color (green)
-- `--xd-gradient-action` -- the signature green-to-orange gradient
-- `--xd-bg`, `--xd-surface`, `--xd-text` -- theme-aware tokens that flip in dark mode
-- `--xd-radius-*` -- border radius scale
-- `--xd-shadow-action-*` -- green-tinted shadows for action elements
+## Themes
 
-## How Each App Consumes Tokens
+Theme-aware tokens flip when any of these are on `<html>` (or an ancestor):
 
-**Vault** (React + Tailwind 4): imports both `tokens.css` (for CSS variables) and `tokens.ts` (for inline styles and JS logic).
+| Theme | Selectors |
+|-------|-----------|
+| **Light** (default / brand green-tint) | `:root`, `[data-lib-theme="light"]` |
+| **Dark** | `.xd-dark`, `.dark`, `[data-theme="dark"]`, `[data-xd-theme="dark"]`, `[data-lib-theme="dark"]` |
+| **Sepia** (reading) | `[data-theme="sepia"]`, `[data-xd-theme="sepia"]`, `[data-lib-theme="sepia"]` |
 
-**Site** (Astro + Tailwind 3): imports `tokens.css` and references `--xd-*` variables in component styles.
+| App | How theme is set |
+|-----|------------------|
+| Vault | `.dark` class on `<html>` |
+| Library | `data-lib-theme="dark\|light\|sepia"` |
+| Site / design.xdface.net | `data-theme` / `.xd-dark` |
 
-**Library** (Astro + Tailwind 4): imports `tokens.css` and references `--xd-*` variables in component styles.
+## Token naming
 
-## Dark Mode
+- `--xd-action` — solid brand green (icons, text, links)
+- `--xd-gradient-action` — CTA gradient (buttons, progress)
+- `--xd-gradient-action-hover` — darker gradient on hover
+- `--xd-bg`, `--xd-surface`, `--xd-text` — flat theme tokens
+- `--xd-deep` … `--xd-chrome` — elevation scale (preferred for apps)
 
-Theme-aware tokens (`--xd-bg`, `--xd-surface`, `--xd-text`, etc.) automatically switch values when any of these selectors are present on `<html>`:
+## How each app consumes tokens
 
-- `.xd-dark`
-- `[data-theme="dark"]`
-- `[data-xd-theme="dark"]`
+```css
+@import '@xdface/tokens/css';
+```
 
-Each app can use whichever selector fits its existing theme toggle mechanism.
+**Vault** (React + Tailwind 4): CSS variables + `tokens.ts` + Tailwind `@theme` mapping.
 
-## Adding a New Token
+**Library** (Astro + Tailwind 4): CSS variables + soft-UI components; product tokens (highlights, pagefind) stay local.
 
-1. Add the value to `tokens.json` in the appropriate section
+**Site** (Astro): CSS variables in component styles.
+
+## Adding a new token
+
+1. Add the value to `tokens.json`
 2. Add the corresponding `--xd-*` variable to `tokens.css`
 3. Add the corresponding property to `tokens.ts`
-4. Update consuming apps as needed
+4. Extend `tailwind.preset.js` if needed
+5. Bump version in `package.json` and update `CHANGELOG.md`
 
-## Logo & Brand Identity
+## Logo & brand
 
-The xdface logo features:
-- **Two X eyes** — representing "xd" (x'd out) + "face"
-- **Asymmetric grin** — tilted 3° for attitude
-- **Green-to-orange gradient** — signature brand colors
+- **Two X eyes** + asymmetric grin (3°)
+- Light / dark SVG variants in `logo/`
+- See `logo/README.md` for export sizes
 
-### Variants
-
-| Variant | File | Background |
-|---------|------|------------|
-| Light | `logo/logo.svg` | White `#FFFFFF` |
-| Dark | `logo/logo-dark.svg` | Dark `#13131A` |
-
-### Logo Specs
-
-- **Dimensions**: 128×128 viewBox
-- **Corner Radius**: 28px (22%)
-- **Border**: 2px subtle stroke
-
-**Colors (Light):**
-- Left X: `#16A34A` (green)
-- Right X: `#EA580C` (orange)
-- Grin: `linear-gradient(135deg, #16A34A, #EA580C)`
-
-**Colors (Dark):**
-- Left X: `#4ADE80` (bright green)
-- Right X: `#FB923C` (bright orange)
-- Grin: Same gradient
-
-See `logo/README.md` for full specs and export sizes.
-
-## Current Adoption Status
+## Adoption status
 
 | App | Status | Notes |
 |-----|--------|-------|
-| Vault | Adopted | Already uses green/orange brand; will import tokens directly |
-| Site | **Adopted** | Migrated to design system |
-| Library | Pending | Hardcoded `#2563EB` throughout; needs migration |
+| Vault | Adopted | Surfaces via package; lesson-prose + ambient wash stay app-local |
+| Library | Adopted | Surfaces + soft shadows from package; highlights/pagefind local |
+| Site | Adopted | Brand tokens |
+| Study notebook | Partial | Align when convenient |
+
+## Utilities (tokens.css)
+
+Buttons: `.xd-btn-action`, `.xd-btn-ghost`, `.xd-btn-subtle`, `.xd-btn-danger`, sizes  
+Forms: `.xd-input`, `.xd-label`, `.xd-toggle`  
+Surfaces: `.xd-card`, `.xd-soft-card`, `.xd-skeleton`  
+Content: `.xd-prose`, `.xd-gradient-text`, `.xd-ambient`  
+Feedback: `.xd-alert-*`, `.xd-badge-*`, `.xd-progress`

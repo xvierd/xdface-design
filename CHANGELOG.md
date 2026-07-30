@@ -2,6 +2,32 @@
 
 All notable changes to `@xdface/tokens` are documented here.
 
+## [0.2.0] — 2026-07-30
+
+### Added
+- **App surface elevation scale** — `--xd-deep`, `--xd-base`, `--xd-raised`, `--xd-chrome`
+- **Text hierarchy** — `--xd-fg` … `--xd-fg-4`, borders `--xd-bd` / `--xd-bd-2`, glass `--xd-gl`
+- **Soft elevation shadows** — `--xd-soft-shadow-sm|md|lg`, `--xd-soft-ring`
+- **Sidebar tokens** — `--xd-sidebar-bg`, `--xd-sidebar-sep`
+- **Sepia reading theme** — `[data-theme="sepia"]`, `[data-lib-theme="sepia"]`
+- **Highlight palette** — `--xd-hl-*` for annotation/marks
+- **`--xd-gradient-action-hover`** for CTA hover states
+- **`.xd-soft-card`**, **`.xd-soft-focus`**, **`.xd-ambient`** utilities
+- **Backward-compat aliases** — `--xds-*` maps to surface scale (vault + library)
+- Dark selector coverage: `.dark`, `[data-lib-theme="dark"]`, etc.
+- `prefers-reduced-motion` on animated utilities
+- Blue primitives `--xd-blue-400` / `--xd-blue-500` in CSS
+- Corrected `--xd-green-700` to `#166534`
+
+### Changed
+- Light theme is now **green-tinted brand** (`#edf2ee` deep, green borders) matching vault/library products
+- Flat `--xd-bg` / `--xd-surface` / `--xd-text` aligned with the new light brand
+- Tailwind preset gradients use CSS vars instead of hard-coded hex
+- Package version **0.2.0**
+
+### Migration
+Apps should remove local redefinitions of `--xds-*` and soft shadows; import `@xdface/tokens/css` only. Keep product-only tokens (pagefind, local highlight class names if needed).
+
 ## [0.1.0] — 2026-03-06
 
 ### Added

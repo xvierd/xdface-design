@@ -1,6 +1,6 @@
 /* xdface Design System -- CSS Custom Properties
- * Generated from tokens.json -- edit tokens.json, not this file
- * Usage: @import 'path/to/tokens.css'; in any app's global CSS
+ * Source of truth: tokens.json — keep this file in sync when editing tokens
+ * Usage: @import '@xdface/tokens/css'; in any app's global CSS
  */
 
 :root {
@@ -8,19 +8,23 @@
   --xd-green-400:     #4ade80;
   --xd-green-500:     #16A34A;
   --xd-green-600:     #15803D;
+  --xd-green-700:     #166534;
   --xd-orange-400:    #fb923c;
   --xd-orange-500:    #EA580C;
   --xd-orange-600:    #C2410C;
+  --xd-blue-400:      #60A5FA;
+  --xd-blue-500:      #3B82F6;
   --xd-dark-600:      #1A1A2E;
   --xd-dark-700:      #1A1A24;
   --xd-dark-800:      #13131A;
   --xd-dark-900:      #0F0F1A;
   --xd-dark-950:      #0D0D12;
 
-  /* -- Brand gradient -- */
-  --xd-gradient-action:      linear-gradient(135deg, #16A34A 0%, #EA580C 100%);
-  --xd-gradient-dark-chrome: linear-gradient(180deg, #0F0F1A 0%, #13132A 60%, #0D0D18 100%);
-  --xd-gradient-top-accent:  linear-gradient(to right, #16A34A, #EA580C);
+  /* -- Brand gradients -- */
+  --xd-gradient-action:       linear-gradient(135deg, #16A34A 0%, #EA580C 100%);
+  --xd-gradient-action-hover: linear-gradient(135deg, #15803D 0%, #C2410C 100%);
+  --xd-gradient-dark-chrome:  linear-gradient(180deg, #0F0F1A 0%, #13132A 60%, #0D0D18 100%);
+  --xd-gradient-top-accent:   linear-gradient(to right, #16A34A, #EA580C);
 
   /* -- Semantic colors -- */
   --xd-action:        #16A34A;
@@ -56,11 +60,12 @@
   --xd-radius-md:   12px;
   --xd-radius-lg:   16px;
   --xd-radius-xl:   20px;
+  --xd-radius-2xl:  1rem;
   --xd-radius-full: 9999px;
 
-  /* -- Shadows -- */
-  --xd-shadow-action-sm:  0 4px 16px rgba(22, 163, 74, 0.25);
-  --xd-shadow-action-md:  0 6px 24px rgba(22, 163, 74, 0.35);
+  /* -- Action shadows -- */
+  --xd-shadow-action-sm:   0 4px 16px rgba(22, 163, 74, 0.25);
+  --xd-shadow-action-md:   0 6px 24px rgba(22, 163, 74, 0.35);
   --xd-shadow-action-glow: 0 0 32px rgba(22, 163, 74, 0.4);
 
   /* -- Motion tokens -- */
@@ -124,29 +129,247 @@
   --xd-overlay-bg:       rgba(0, 0, 0, 0.5);
   --xd-disabled-opacity: 0.5;
 
-  /* -- Card hover shadow (light theme default) -- */
+  /* -- Highlight / annotation palette (product-agnostic) -- */
+  --xd-hl-yellow:        #FEF08A;
+  --xd-hl-yellow-ink:    #713f12;
+  --xd-hl-yellow-ring:   #854D0E;
+  --xd-hl-yellow-strong: #D97706;
+  --xd-hl-yellow-bg:     #FFFBEB;
+  --xd-hl-red:           #FECACA;
+  --xd-hl-red-ink:       #7f1d1d;
+  --xd-hl-red-ring:      #991B1B;
+  --xd-hl-red-strong:    #DC2626;
+  --xd-hl-red-bg:        #FFF5F5;
+  --xd-hl-blue:          #BFDBFE;
+  --xd-hl-blue-ink:      #1e3a8a;
+  --xd-hl-blue-ring:     #1E40AF;
+  --xd-hl-blue-strong:   var(--xd-info);
+  --xd-hl-blue-bg:       #EFF6FF;
+  --xd-hl-green:         #BBF7D0;
+  --xd-hl-green-ink:     #14532d;
+  --xd-hl-green-ring:    #166534;
+  --xd-hl-green-strong:  var(--xd-action);
+  --xd-hl-green-bg:      #F0FDF4;
+  --xd-hl-yellow-dark-ink: #fde047;
+  --xd-hl-red-dark-ink:    #fca5a5;
+  --xd-hl-blue-dark-ink:   #93c5fd;
+  --xd-hl-green-dark-ink:  #86efac;
+  --xd-hl-card-text:       #111827;
+  --xd-hl-card-text-muted: #6b7280;
+
+  /* ═══════════════════════════════════════════════════════════
+     LIGHT THEME (default) — green-tinted brand surfaces
+     Shared by vault (default) and library [data-lib-theme=light]
+  ═══════════════════════════════════════════════════════════ */
+  --xd-bg:          #edf2ee;
+  --xd-surface:     #FFFFFF;
+  --xd-surface-2:   #e4ede5;
+  --xd-border:      rgba(22, 163, 74, 0.14);
+  --xd-text:        #0d1a0f;
+  --xd-text-muted:  #587060;
+
+  /* App surface elevation scale */
+  --xd-deep:    #edf2ee;
+  --xd-base:    #FFFFFF;
+  --xd-raised:  #e4ede5;
+  --xd-chrome:  #f5f8f5;
+  --xd-fg:      #0d1a0f;
+  --xd-fg-2:    rgba(13, 26, 15, 0.70);
+  --xd-fg-3:    rgba(13, 26, 15, 0.46);
+  --xd-fg-4:    rgba(13, 26, 15, 0.25);
+  --xd-bd:      rgba(22, 163, 74, 0.16);
+  --xd-bd-2:    rgba(22, 163, 74, 0.08);
+  --xd-gl:      rgba(22, 163, 74, 0.05);
+  --xd-sidebar-bg:  linear-gradient(180deg, #f5f8f5 0%, #edf2ee 60%, #f0f5f1 100%);
+  --xd-sidebar-sep: rgba(22, 163, 74, 0.12);
+
+  /* Soft elevation shadows (theme-aware) */
+  --xd-soft-shadow-sm: 0 1px 2px rgba(13, 26, 15, 0.04), 0 4px 14px color-mix(in srgb, var(--xd-action) 5%, transparent);
+  --xd-soft-shadow-md: 0 2px 8px rgba(13, 26, 15, 0.05), 0 12px 30px color-mix(in srgb, var(--xd-action) 7%, transparent);
+  --xd-soft-shadow-lg: 0 6px 16px rgba(13, 26, 15, 0.06), 0 20px 48px color-mix(in srgb, var(--xd-action) 9%, transparent);
+  --xd-soft-ring: 0 0 0 3px color-mix(in srgb, var(--xd-action) 30%, transparent);
   --xd-shadow-card-hover: 0 8px 30px rgba(0, 0, 0, 0.08);
 
-  /* -- Light theme (default) -- */
-  --xd-bg:          #F8F8FA;
-  --xd-surface:     #FFFFFF;
-  --xd-surface-2:   #F2F2F5;
-  --xd-border:      rgba(0, 0, 0, 0.08);
-  --xd-text:        #111118;
-  --xd-text-muted:  #707080;
+  /* Vault legacy soft-shadow names */
+  --xd-shadow-soft:    var(--xd-soft-shadow-sm);
+  --xd-shadow-soft-lg: var(--xd-soft-shadow-lg);
+
+  /* Gradient alias used by library */
+  --xd-gradient: var(--xd-gradient-action);
+
+  /* ── Backward-compat aliases (--xds-* used by vault + library) ── */
+  --xds-deep:        var(--xd-deep);
+  --xds-base:        var(--xd-base);
+  --xds-raised:      var(--xd-raised);
+  --xds-chrome:      var(--xd-chrome);
+  --xds-fg:          var(--xd-fg);
+  --xds-fg2:         var(--xd-fg-2);
+  --xds-fg3:         var(--xd-fg-3);
+  --xds-fg4:         var(--xd-fg-4);
+  --xds-bd:          var(--xd-bd);
+  --xds-bd2:         var(--xd-bd-2);
+  --xds-gl:          var(--xd-gl);
+  --xds-sidebar-bg:  var(--xd-sidebar-bg);
+  --xds-sidebar-sep: var(--xd-sidebar-sep);
+  --xds-shadow-soft:    var(--xd-soft-shadow-sm);
+  --xds-shadow-soft-lg: var(--xd-soft-shadow-lg);
 }
 
-/* Dark theme -- add .xd-dark to <html> or use with [data-theme="dark"] */
+/* ═══════════════════════════════════════════════════════════
+   DARK THEME
+   Selectors: vault (.dark), package (.xd-dark / data-theme),
+   library ([data-lib-theme="dark"])
+═══════════════════════════════════════════════════════════ */
 .xd-dark,
+.dark,
 [data-theme="dark"],
-[data-xd-theme="dark"] {
-  --xd-bg:         #0D0D12;
-  --xd-surface:    #13131A;
-  --xd-surface-2:  #1A1A24;
-  --xd-border:     rgba(255, 255, 255, 0.07);
-  --xd-text:       #E8E8F0;
-  --xd-text-muted: #9898A8;
+[data-xd-theme="dark"],
+[data-lib-theme="dark"] {
+  --xd-bg:          #0D0D12;
+  --xd-surface:     #13131A;
+  --xd-surface-2:   #1A1A24;
+  --xd-border:      rgba(255, 255, 255, 0.07);
+  --xd-text:        #E8E8F0;
+  --xd-text-muted:  #9898A8;
+
+  --xd-deep:    #0F0F16;
+  --xd-base:    #13131A;
+  --xd-raised:  #1A1A24;
+  --xd-chrome:  #0A0A15;
+  --xd-fg:      #F1F5F9;
+  --xd-fg-2:    rgba(241, 245, 249, 0.80);
+  --xd-fg-3:    rgba(241, 245, 249, 0.42);
+  --xd-fg-4:    rgba(241, 245, 249, 0.22);
+  --xd-bd:      rgba(255, 255, 255, 0.10);
+  --xd-bd-2:    rgba(255, 255, 255, 0.05);
+  --xd-gl:      rgba(255, 255, 255, 0.05);
+  --xd-sidebar-bg:  linear-gradient(180deg, #0F0F1A 0%, #13132A 60%, #0D0D18 100%);
+  --xd-sidebar-sep: rgba(255, 255, 255, 0.08);
+
+  --xd-soft-shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.25), 0 4px 14px color-mix(in srgb, var(--xd-action) 5%, transparent);
+  --xd-soft-shadow-md: 0 2px 8px rgba(0, 0, 0, 0.28), 0 12px 30px color-mix(in srgb, var(--xd-action) 7%, transparent);
+  --xd-soft-shadow-lg: 0 6px 16px rgba(0, 0, 0, 0.32), 0 20px 48px color-mix(in srgb, var(--xd-action) 9%, transparent);
+  --xd-soft-ring: 0 0 0 3px color-mix(in srgb, var(--xd-green-400) 30%, transparent);
   --xd-shadow-card-hover: 0 8px 30px rgba(0, 0, 0, 0.3);
+  --xd-shadow-soft:    var(--xd-soft-shadow-sm);
+  --xd-shadow-soft-lg: var(--xd-soft-shadow-lg);
+
+  /* Re-bind aliases so apps reading --xds-* pick up dark values */
+  --xds-deep:        var(--xd-deep);
+  --xds-base:        var(--xd-base);
+  --xds-raised:      var(--xd-raised);
+  --xds-chrome:      var(--xd-chrome);
+  --xds-fg:          var(--xd-fg);
+  --xds-fg2:         var(--xd-fg-2);
+  --xds-fg3:         var(--xd-fg-3);
+  --xds-fg4:         var(--xd-fg-4);
+  --xds-bd:          var(--xd-bd);
+  --xds-bd2:         var(--xd-bd-2);
+  --xds-gl:          var(--xd-gl);
+  --xds-sidebar-bg:  var(--xd-sidebar-bg);
+  --xds-sidebar-sep: var(--xd-sidebar-sep);
+  --xds-shadow-soft:    var(--xd-soft-shadow-sm);
+  --xds-shadow-soft-lg: var(--xd-soft-shadow-lg);
+}
+
+/* Library light explicitly re-applies light surfaces (same as :root) */
+[data-lib-theme="light"] {
+  --xd-bg:          #edf2ee;
+  --xd-surface:     #FFFFFF;
+  --xd-surface-2:   #e4ede5;
+  --xd-border:      rgba(22, 163, 74, 0.14);
+  --xd-text:        #0d1a0f;
+  --xd-text-muted:  #587060;
+
+  --xd-deep:    #edf2ee;
+  --xd-base:    #FFFFFF;
+  --xd-raised:  #e4ede5;
+  --xd-chrome:  #f5f8f5;
+  --xd-fg:      #0d1a0f;
+  --xd-fg-2:    rgba(13, 26, 15, 0.70);
+  --xd-fg-3:    rgba(13, 26, 15, 0.46);
+  --xd-fg-4:    rgba(13, 26, 15, 0.25);
+  --xd-bd:      rgba(22, 163, 74, 0.16);
+  --xd-bd-2:    rgba(22, 163, 74, 0.08);
+  --xd-gl:      rgba(22, 163, 74, 0.05);
+  --xd-sidebar-bg:  linear-gradient(180deg, #f5f8f5 0%, #edf2ee 60%, #f0f5f1 100%);
+  --xd-sidebar-sep: rgba(22, 163, 74, 0.12);
+
+  --xd-soft-shadow-sm: 0 1px 2px rgba(13, 26, 15, 0.04), 0 4px 14px color-mix(in srgb, var(--xd-action) 5%, transparent);
+  --xd-soft-shadow-md: 0 2px 8px rgba(13, 26, 15, 0.05), 0 12px 30px color-mix(in srgb, var(--xd-action) 7%, transparent);
+  --xd-soft-shadow-lg: 0 6px 16px rgba(13, 26, 15, 0.06), 0 20px 48px color-mix(in srgb, var(--xd-action) 9%, transparent);
+  --xd-soft-ring: 0 0 0 3px color-mix(in srgb, var(--xd-action) 30%, transparent);
+  --xd-shadow-card-hover: 0 8px 30px rgba(0, 0, 0, 0.08);
+  --xd-shadow-soft:    var(--xd-soft-shadow-sm);
+  --xd-shadow-soft-lg: var(--xd-soft-shadow-lg);
+
+  --xds-deep:        var(--xd-deep);
+  --xds-base:        var(--xd-base);
+  --xds-raised:      var(--xd-raised);
+  --xds-chrome:      var(--xd-chrome);
+  --xds-fg:          var(--xd-fg);
+  --xds-fg2:         var(--xd-fg-2);
+  --xds-fg3:         var(--xd-fg-3);
+  --xds-fg4:         var(--xd-fg-4);
+  --xds-bd:          var(--xd-bd);
+  --xds-bd2:         var(--xd-bd-2);
+  --xds-gl:          var(--xd-gl);
+  --xds-sidebar-bg:  var(--xd-sidebar-bg);
+  --xds-sidebar-sep: var(--xd-sidebar-sep);
+  --xds-shadow-soft:    var(--xd-soft-shadow-sm);
+  --xds-shadow-soft-lg: var(--xd-soft-shadow-lg);
+}
+
+/* ═══════════════════════════════════════════════════════════
+   SEPIA / READING THEME
+═══════════════════════════════════════════════════════════ */
+[data-theme="sepia"],
+[data-xd-theme="sepia"],
+[data-lib-theme="sepia"] {
+  --xd-bg:          #e2d9cc;
+  --xd-surface:     #f8f4ed;
+  --xd-surface-2:   #f0ead9;
+  --xd-border:      #ccc0aa;
+  --xd-text:        #2c1a0e;
+  --xd-text-muted:  #7a6050;
+
+  --xd-deep:    #e2d9cc;
+  --xd-base:    #f8f4ed;
+  --xd-raised:  #f0ead9;
+  --xd-chrome:  #f8f4ed;
+  --xd-fg:      #2c1a0e;
+  --xd-fg-2:    #4a3020;
+  --xd-fg-3:    #7a6050;
+  --xd-fg-4:    rgba(44, 26, 14, 0.35);
+  --xd-bd:      #ccc0aa;
+  --xd-bd-2:    rgba(204, 192, 170, 0.6);
+  --xd-gl:      rgba(139, 115, 85, 0.08);
+  --xd-sidebar-bg:  linear-gradient(180deg, #f8f4ed 0%, #e2d9cc 100%);
+  --xd-sidebar-sep: rgba(139, 115, 85, 0.2);
+
+  --xd-soft-shadow-sm: 0 1px 2px rgba(60, 40, 20, 0.06), 0 4px 14px color-mix(in srgb, var(--xd-action) 5%, transparent);
+  --xd-soft-shadow-md: 0 2px 8px rgba(60, 40, 20, 0.08), 0 12px 30px color-mix(in srgb, var(--xd-action) 7%, transparent);
+  --xd-soft-shadow-lg: 0 6px 16px rgba(60, 40, 20, 0.10), 0 20px 48px color-mix(in srgb, var(--xd-action) 9%, transparent);
+  --xd-soft-ring: 0 0 0 3px color-mix(in srgb, var(--xd-action) 30%, transparent);
+  --xd-shadow-card-hover: 0 8px 30px rgba(60, 40, 20, 0.12);
+  --xd-shadow-soft:    var(--xd-soft-shadow-sm);
+  --xd-shadow-soft-lg: var(--xd-soft-shadow-lg);
+
+  --xds-deep:        var(--xd-deep);
+  --xds-base:        var(--xd-base);
+  --xds-raised:      var(--xd-raised);
+  --xds-chrome:      var(--xd-chrome);
+  --xds-fg:          var(--xd-fg);
+  --xds-fg2:         var(--xd-fg-2);
+  --xds-fg3:         var(--xd-fg-3);
+  --xds-fg4:         var(--xd-fg-4);
+  --xds-bd:          var(--xd-bd);
+  --xds-bd2:         var(--xd-bd-2);
+  --xds-gl:          var(--xd-gl);
+  --xds-sidebar-bg:  var(--xd-sidebar-bg);
+  --xds-sidebar-sep: var(--xd-sidebar-sep);
+  --xds-shadow-soft:    var(--xd-soft-shadow-sm);
+  --xds-shadow-soft-lg: var(--xd-soft-shadow-lg);
 }
 
 /* -- Utility: gradient action button -- */
@@ -155,10 +378,13 @@
   color: white;
   box-shadow: var(--xd-shadow-action-sm);
   border-radius: var(--xd-radius-md);
-  transition: opacity 0.15s ease, transform 0.15s ease, box-shadow 0.15s ease;
+  transition: opacity var(--xd-duration-normal) var(--xd-ease-default),
+              transform var(--xd-duration-normal) var(--xd-ease-default),
+              box-shadow var(--xd-duration-normal) var(--xd-ease-default);
 }
 .xd-btn-action:hover {
-  opacity: 0.92;
+  background: var(--xd-gradient-action-hover);
+  opacity: 0.96;
   box-shadow: var(--xd-shadow-action-md);
   transform: translateY(-1px);
 }
@@ -166,7 +392,7 @@
   transform: scale(0.97);
 }
 .xd-btn-action:disabled {
-  opacity: 0.5;
+  opacity: var(--xd-disabled-opacity);
   transform: none;
   box-shadow: none;
 }
@@ -180,7 +406,7 @@
   content: '';
   position: absolute;
   inset: -2px;
-  border-radius: 30px; /* Match logo radius (28px) + padding */
+  border-radius: 30px;
   background: var(--xd-gradient-action);
   filter: blur(8px);
   opacity: 0.5;
@@ -197,13 +423,13 @@
 .xd-btn-lg { padding: 0.75rem 1.5rem; font-size: 1rem; border-radius: var(--xd-radius-lg); }
 
 /* -- Button variants -- */
-.xd-btn-ghost { background: transparent; color: var(--xd-action); border: 1.5px solid var(--xd-action); border-radius: var(--xd-radius-md); transition: background 0.15s ease, box-shadow 0.15s ease; }
+.xd-btn-ghost { background: transparent; color: var(--xd-action); border: 1.5px solid var(--xd-action); border-radius: var(--xd-radius-md); transition: background var(--xd-duration-normal) var(--xd-ease-default), box-shadow var(--xd-duration-normal) var(--xd-ease-default); }
 .xd-btn-ghost:hover { background: color-mix(in srgb, var(--xd-action) 8%, transparent); box-shadow: var(--xd-shadow-action-sm); }
 
-.xd-btn-subtle { background: color-mix(in srgb, var(--xd-action) 10%, transparent); color: var(--xd-action); border: none; border-radius: var(--xd-radius-md); transition: background 0.15s ease; }
+.xd-btn-subtle { background: color-mix(in srgb, var(--xd-action) 10%, transparent); color: var(--xd-action); border: none; border-radius: var(--xd-radius-md); transition: background var(--xd-duration-normal) var(--xd-ease-default); }
 .xd-btn-subtle:hover { background: color-mix(in srgb, var(--xd-action) 18%, transparent); }
 
-.xd-btn-danger { background: var(--xd-error); color: white; border: none; border-radius: var(--xd-radius-md); box-shadow: 0 4px 16px color-mix(in srgb, var(--xd-error) 30%, transparent); transition: opacity 0.15s ease, transform 0.15s ease; }
+.xd-btn-danger { background: var(--xd-error); color: white; border: none; border-radius: var(--xd-radius-md); box-shadow: 0 4px 16px color-mix(in srgb, var(--xd-error) 30%, transparent); transition: opacity var(--xd-duration-normal) var(--xd-ease-default), transform var(--xd-duration-normal) var(--xd-ease-default); }
 .xd-btn-danger:hover { opacity: 0.9; transform: translateY(-1px); }
 .xd-btn-danger:active { transform: scale(0.97); }
 
@@ -216,9 +442,9 @@
 /* -- Form components -- */
 .xd-label { display: block; font-size: 0.875rem; font-weight: 500; color: var(--xd-text); margin-bottom: 0.375rem; }
 
-.xd-input { display: block; width: 100%; padding: 0.5rem 0.75rem; font-size: 0.875rem; font-family: var(--xd-font-sans); color: var(--xd-text); background: var(--xd-surface); border: 1.5px solid var(--xd-border); border-radius: var(--xd-radius-md); outline: none; transition: border-color 0.15s ease, box-shadow 0.15s ease; }
-.xd-input:focus { border-color: var(--xd-action); box-shadow: 0 0 0 3px color-mix(in srgb, var(--xd-action) 15%, transparent); }
-.xd-input:disabled { opacity: 0.5; cursor: not-allowed; }
+.xd-input { display: block; width: 100%; padding: 0.5rem 0.75rem; font-size: 0.875rem; font-family: var(--xd-font-sans); color: var(--xd-text); background: var(--xd-surface); border: 1.5px solid var(--xd-border); border-radius: var(--xd-radius-md); outline: none; transition: border-color var(--xd-duration-normal) var(--xd-ease-default), box-shadow var(--xd-duration-normal) var(--xd-ease-default); }
+.xd-input:focus { border-color: var(--xd-action); box-shadow: var(--xd-focus-ring); }
+.xd-input:disabled { opacity: var(--xd-disabled-opacity); cursor: not-allowed; }
 .xd-input-error { border-color: var(--xd-error) !important; box-shadow: 0 0 0 3px color-mix(in srgb, var(--xd-error) 15%, transparent) !important; }
 
 .xd-select { appearance: none; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23707080' stroke-width='2'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 0.75rem center; padding-right: 2.5rem; }
@@ -250,22 +476,42 @@
 
 /* -- Progress bar -- */
 .xd-progress { width: 100%; height: 6px; background: color-mix(in srgb, var(--xd-action) 15%, transparent); border-radius: var(--xd-radius-full); overflow: hidden; }
-.xd-progress-bar { height: 100%; background: var(--xd-gradient-action); border-radius: var(--xd-radius-full); transition: width 0.3s ease; }
+.xd-progress-bar { height: 100%; background: var(--xd-gradient-action); border-radius: var(--xd-radius-full); transition: width var(--xd-duration-slow) var(--xd-ease-default); }
 
 /* -- Tabs -- */
 .xd-tab-list { display: flex; gap: 0.25rem; border-bottom: 1.5px solid var(--xd-border); padding-bottom: 0; }
-.xd-tab { padding: 0.5rem 1rem; font-size: 0.875rem; font-weight: 500; color: var(--xd-text-muted); border: none; background: none; cursor: pointer; border-bottom: 2px solid transparent; margin-bottom: -1.5px; transition: color 0.15s ease, border-color 0.15s ease; }
+.xd-tab { padding: 0.5rem 1rem; font-size: 0.875rem; font-weight: 500; color: var(--xd-text-muted); border: none; background: none; cursor: pointer; border-bottom: 2px solid transparent; margin-bottom: -1.5px; transition: color var(--xd-duration-normal) var(--xd-ease-default), border-color var(--xd-duration-normal) var(--xd-ease-default); }
 .xd-tab:hover { color: var(--xd-text); }
 .xd-tab-active { color: var(--xd-action) !important; border-bottom-color: var(--xd-action) !important; }
 
 /* -- Tooltip -- */
 [data-tooltip] { position: relative; }
-[data-tooltip]::before { content: attr(data-tooltip); position: absolute; bottom: calc(100% + 6px); left: 50%; transform: translateX(-50%); background: var(--xd-text); color: var(--xd-bg); padding: 0.3rem 0.625rem; border-radius: var(--xd-radius-sm); font-size: 0.7rem; white-space: nowrap; opacity: 0; pointer-events: none; transition: opacity 0.15s ease; z-index: 100; }
+[data-tooltip]::before { content: attr(data-tooltip); position: absolute; bottom: calc(100% + 6px); left: 50%; transform: translateX(-50%); background: var(--xd-text); color: var(--xd-bg); padding: 0.3rem 0.625rem; border-radius: var(--xd-radius-sm); font-size: 0.7rem; white-space: nowrap; opacity: 0; pointer-events: none; transition: opacity var(--xd-duration-normal) var(--xd-ease-default); z-index: var(--xd-z-tooltip); }
 [data-tooltip]:hover::before { opacity: 1; }
 
 /* ────────────────────────────────────────────
-   UTILITY COMPONENTS  (v0.1.0)
+   UTILITY COMPONENTS
 ──────────────────────────────────────────── */
+
+/* -- Soft card (app surface elevation) -- */
+.xd-soft-card {
+  background: var(--xd-base);
+  border: 1px solid var(--xd-bd);
+  border-radius: var(--xd-radius-2xl);
+  box-shadow: var(--xd-soft-shadow-sm);
+  transition:
+    transform var(--xd-duration-slow) var(--xd-ease-in-out),
+    box-shadow var(--xd-duration-slow) var(--xd-ease-default),
+    border-color var(--xd-duration-slow) var(--xd-ease-default);
+}
+.xd-soft-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--xd-soft-shadow-md);
+}
+.xd-soft-focus:focus-visible {
+  outline: none;
+  box-shadow: var(--xd-soft-ring);
+}
 
 /* -- Skeleton shimmer -- */
 @keyframes xd-shimmer {
@@ -290,6 +536,7 @@
   border: 1px solid var(--xd-border);
   border-radius: var(--xd-radius-lg);
   overflow: hidden;
+  box-shadow: var(--xd-soft-shadow-sm);
 }
 .xd-card-hover {
   transition: transform var(--xd-duration-normal) var(--xd-ease-in-out),
@@ -354,6 +601,30 @@
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+}
+
+/* -- Ambient brand wash (page atmosphere) -- */
+.xd-ambient {
+  position: relative;
+  isolation: isolate;
+}
+.xd-ambient::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background:
+    radial-gradient(60rem 40rem at 100% -10%, color-mix(in srgb, var(--xd-action-end) 4.5%, transparent), transparent 60%),
+    radial-gradient(70rem 50rem at -10% 0%, color-mix(in srgb, var(--xd-action) 5%, transparent), transparent 60%);
+}
+.xd-dark.xd-ambient::before,
+.dark .xd-ambient::before,
+[data-theme="dark"] .xd-ambient::before,
+[data-lib-theme="dark"] .xd-ambient::before {
+  background:
+    radial-gradient(60rem 40rem at 100% -10%, color-mix(in srgb, var(--xd-action-end) 6%, transparent), transparent 60%),
+    radial-gradient(70rem 50rem at -10% 0%, color-mix(in srgb, var(--xd-action) 7%, transparent), transparent 60%);
 }
 
 /* -- Prose content typography -- */
@@ -422,6 +693,22 @@
 }
 .xd-fadeSlideUp {
   animation: xd-fadeSlideUp var(--xd-duration-slow) var(--xd-ease-in-out) both;
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .xd-btn-action,
+  .xd-btn-ghost,
+  .xd-btn-subtle,
+  .xd-btn-danger,
+  .xd-soft-card,
+  .xd-card-hover,
+  .xd-fadeSlideUp,
+  .xd-skeleton {
+    transition: none !important;
+    animation: none !important;
+    transform: none !important;
+  }
 }
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap');
 
