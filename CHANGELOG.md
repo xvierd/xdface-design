@@ -2,6 +2,11 @@
 
 All notable changes to `@xdface/tokens` are documented here.
 
+## [0.3.1] — 2026-10-14
+
+### Fixed
+- Declaration emit during `npm run build`. tsup 8 still sets `baseUrl` for the dts build, and TypeScript rejects that option (`TS5101`) unless `ignoreDeprecations` is `"6.0"`. `tsconfig.json` sets that so `tokens.d.ts` and `tokens.d.mts` are produced again. This unblocks publishing. No token or API changes.
+
 ## [0.3.0] — 2026-10-14
 
 ### Breaking
