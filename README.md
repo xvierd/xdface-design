@@ -2,7 +2,7 @@
 
 Source of truth for colors, typography, spacing, surfaces, and visual identity across all xdface apps.
 
-**Package:** `@xdface/tokens` · **v0.3.0** · Biblioteca personal divertida
+**Package:** `@xdface/tokens` · **v0.3.1** · Biblioteca personal divertida
 
 ## Files
 
