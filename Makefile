@@ -1,4 +1,10 @@
-.PHONY: dev build deploy deploy-infra invalidate
+.PHONY: tokens check dev build deploy deploy-infra invalidate
+
+tokens:
+	python3 build.py
+
+check:
+	python3 build.py --check
 
 DIST_ID := $(shell aws --profile theants ssm get-parameter \
   --name /xdface/design/cf-distribution-id \
@@ -8,12 +14,10 @@ BUCKET := $(shell aws --profile theants ssm get-parameter \
   --name /xdface/design/bucket-name \
   --query Parameter.Value --output text --region us-east-1 2>/dev/null)
 
-dev:
-	cat tokens.css web/src/styles/global.css > web/public/styles/global.css
+dev: tokens
 	cd web && npm run dev
 
-build:
-	cat tokens.css web/src/styles/global.css > web/public/styles/global.css
+build: tokens
 	cd web && npm run build
 
 deploy: build

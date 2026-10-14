@@ -1,7 +1,7 @@
 {
   "name": "@xdface/tokens",
-  "version": "0.2.0",
-  "description": "xdface Design System — CSS variables, TypeScript constants, and Tailwind preset",
+  "version": "0.3.0",
+  "description": "xdface Design System — Biblioteca personal divertida. CSS variables, TypeScript constants, and Tailwind preset",
   "license": "MIT",
   "repository": {
     "type": "git",
@@ -27,7 +27,10 @@
     "tailwind.preset.js"
   ],
   "scripts": {
-    "build": "tsup tokens.ts --format esm,cjs --dts --clean",
+    "generate": "python3 build.py",
+    "check:tokens": "python3 build.py --check",
+    "typecheck": "tsc --noEmit -p tsconfig.json",
+    "build": "python3 build.py && tsup tokens.ts --format esm,cjs --dts --clean",
     "prepublishOnly": "npm run build"
   },
   "devDependencies": {

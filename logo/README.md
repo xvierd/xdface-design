@@ -1,89 +1,30 @@
-# xdface Logo & Brand Assets
+# xdface Logo
 
-Source of truth for the xdface logo, favicon, and brand identity.
+Generated from `tokens.json` (`mark`) by `build.py`. Do not edit the SVGs by hand.
 
-## Logo
+The mark is two X eyes and a grin rotated −3°, green into orange.
 
-The xdface logo features a stylized face with:
-- **Two X eyes** — representing the "xd" (x'd out eyes) + "face"
-- **Asymmetric grin** — tilted 3° for attitude
-- **Green-to-orange gradient** — the signature brand colors
+## Files
 
-### Variants
+| File | Tile | Use |
+|------|------|-----|
+| `logo.svg` | White `#FFFFFF`, border `#E5E7EB` | Light surfaces |
+| `logo-dark.svg` | Forest `#1F2B23`, border `#F6EFE21F` | Dark surfaces. Not a copy of the light logo. |
+| `logo-sepia.svg` | Sepia `#FAF3E3`, border `#DCC9A6` | Reading theme |
+| `logo-mark-transparent-light.svg` | none | Light ink on a photo or pattern |
+| `logo-mark-transparent-dark.svg` | none | Bright ink on forest |
+| `favicon.svg` / `favicon-dark.svg` | tiled, heavier strokes | Browser icon |
+| `favicon-16.svg` / `favicon-16-dark.svg` | same art at 16×16 | Small tab icon |
 
-| Variant | File | Background | Use Case |
-|---------|------|------------|----------|
-| Light | `logo.svg` | White `#FFFFFF` | Light mode, print |
-| Dark | `logo-dark.svg` | Dark `#13131A` | Dark mode, dark backgrounds |
+ViewBox is `0 0 128 128`. Tile radius is 28.
 
-### Dimensions
-
-- **ViewBox**: `0 0 128 128`
-- **Corner Radius**: `28px` (22% of size)
-- **Border**: `2px` stroke, subtle
-
-### Color Specs
-
-#### Light Variant
-| Element | Color | Token |
-|---------|-------|-------|
-| Background | `#FFFFFF` | `--xd-surface` (light) |
-| Border | `#E5E7EB` | subtle gray |
-| Left X | `#16A34A` | `--xd-action` |
-| Right X | `#EA580C` | `--xd-action-end` |
-| Grin | Gradient | `--xd-gradient-action` |
-
-#### Dark Variant
-| Element | Color | Token |
-|---------|-------|-------|
-| Background | `#13131A` | `--xd-surface` (dark) |
-| Border | `rgba(255,255,255,0.1)` | subtle white |
-| Left X | `#4ADE80` | `--xd-green-400` (bright) |
-| Right X | `#FB923C` | `--xd-orange-400` (bright) |
-| Grin | Gradient | `--xd-gradient-action` |
-
-## Favicon
-
-The logo files ARE the favicons. Use them directly:
-
-| File | Use As | Purpose |
-|------|--------|---------|
-| `logo.svg` | `favicon.svg` | Light mode favicon |
-| `logo-dark.svg` | `favicon-dark.svg` | Dark mode favicon |
-
-### Usage in Apps
+## Favicon links
 
 ```html
-<!-- Light mode -->
-<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-
-<!-- Dark mode (switch with JS/CSS) -->
-<img src="/favicon.svg" class="dark:hidden" />
-<img src="/favicon-dark.svg" class="hidden dark:block" />
+<link rel="icon" href="/favicon.svg" type="image/svg+xml" media="(prefers-color-scheme: light)" />
+<link rel="icon" href="/favicon-dark.svg" type="image/svg+xml" media="(prefers-color-scheme: dark)" />
 ```
 
-## Export Sizes
+Sepia is an app theme, not an OS color scheme, so the favicon stays on `prefers-color-scheme`. Swap the in-page mark with `data-xd-theme` instead.
 
-When exporting from the SVGs:
-
-| Size | Use Case |
-|------|----------|
-| 32×32 | Browser favicon |
-| 192×192 | PWA icon, Android |
-| 512×512 | PWA maskable |
-
-## Copy to Apps
-
-The logo files are used as favicons in apps (just rename/copy):
-
-```bash
-# Site
-cp logo.svg ../site/web/public/favicon.svg
-cp logo-dark.svg ../site/web/public/favicon-dark.svg
-
-# Vault
-cp logo.svg ../xdface-vault/web/public/favicon.svg
-cp logo-dark.svg ../xdface-vault/web/public/favicon-dark.svg
-```
-
-**Note:** `logo.svg` → `favicon.svg` (same file, different name in apps)
+The docs site copies these files into `web/public/` when `build.py` runs.

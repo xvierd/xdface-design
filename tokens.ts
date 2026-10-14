@@ -1,194 +1,276 @@
 /**
  * xdface Design System -- TypeScript tokens
- * Source of truth: tokens.json — keep this file in sync when editing tokens
- * Usage: import { tokens } from '@xdface/tokens'
+ * GENERATED from tokens.json by build.py — do not edit by hand
+ * Usage: import { tokens, setTheme } from '@xdface/tokens'
  */
 
 export const tokens = {
-  gradient: {
-    action:      'linear-gradient(135deg, #16A34A 0%, #EA580C 100%)',
-    actionHover: 'linear-gradient(135deg, #15803D 0%, #C2410C 100%)',
-    darkChrome:  'linear-gradient(180deg, #0F0F1A 0%, #13132A 60%, #0D0D18 100%)',
-    topAccent:   'linear-gradient(to right, #16A34A, #EA580C)',
+  "gradient": {
+    "action": "linear-gradient(135deg, #16A34A 0%, #EA580C 100%)",
+    "grin": "linear-gradient(90deg, var(--xd-brand-green), var(--xd-brand-orange))"
   },
-  color: {
-    action:      '#16A34A',
-    actionEnd:   '#EA580C',
-    actionHover: '#15803D',
-    xp:          '#F59E0B',
-    streak:      '#EF4444',
-    badge:       '#8B5CF6',
-    dark950:     '#0D0D12',
-    dark900:     '#0F0F1A',
-    dark800:     '#13131A',
-    dark700:     '#1A1A24',
-    dark600:     '#1A1A2E',
-    green400:    '#4ade80',
-    green500:    '#16A34A',
-    green600:    '#15803D',
-    green700:    '#166534',
-    orange400:   '#fb923c',
-    orange500:   '#EA580C',
-    orange600:   '#C2410C',
-    blue400:     '#60A5FA',
-    blue500:     '#3B82F6',
-    error:   '#EF4444',
-    warning: '#F59E0B',
-    info:    '#3B82F6',
-    success: '#16A34A',
+  "color": {
+    "green300": "#86EFAC",
+    "green400": "#4ADE80",
+    "green500": "#16A34A",
+    "green600": "#15803D",
+    "green700": "#166534",
+    "green800": "#14532D",
+    "orange400": "#FB923C",
+    "orange500": "#EA580C",
+    "orange600": "#C2410C",
+    "orange700": "#A8430F",
+    "paper50": "#FFFDF8",
+    "paper100": "#FBF6EC",
+    "paper200": "#F3EADA",
+    "paper300": "#E3D7C1",
+    "paper400": "#C9B99B",
+    "ink900": "#1E2A22",
+    "ink700": "#3F4D43",
+    "ink500": "#5E6B61",
+    "forest950": "#121A15",
+    "forest900": "#16201A",
+    "forest800": "#1F2B23",
+    "forest700": "#2A382E",
+    "sepia100": "#FAF3E3",
+    "sepia200": "#F4E9D4",
+    "sepia300": "#EADBBE",
+    "sepia900": "#33261A",
+    "mustard400": "#E8B53A",
+    "pink200": "#F4B6C2",
+    "sky200": "#A9D3E8",
+    "peach200": "#FAD3B5",
+    "mint200": "#BFE8C9",
+    "plum700": "#6B2E4A"
   },
-  theme: {
-    light: {
-      bg:         '#edf2ee',
-      surface:    '#FFFFFF',
-      surface2:   '#e4ede5',
-      border:     'rgba(22, 163, 74, 0.14)',
-      text:       '#0d1a0f',
-      textMuted:  '#587060',
-      deep:       '#edf2ee',
-      base:       '#FFFFFF',
-      raised:     '#e4ede5',
-      chrome:     '#f5f8f5',
-      fg:         '#0d1a0f',
-      fg2:        'rgba(13, 26, 15, 0.70)',
-      fg3:        'rgba(13, 26, 15, 0.46)',
-      fg4:        'rgba(13, 26, 15, 0.25)',
-      bd:         'rgba(22, 163, 74, 0.16)',
-      bd2:        'rgba(22, 163, 74, 0.08)',
-      gl:         'rgba(22, 163, 74, 0.05)',
+  "spine": {
+    "hoja": {
+      "bg": "#166534",
+      "fg": "#FFFDF8"
     },
-    dark: {
-      bg:         '#0D0D12',
-      surface:    '#13131A',
-      surface2:   '#1A1A24',
-      border:     'rgba(255,255,255,0.07)',
-      text:       '#E8E8F0',
-      textMuted:  '#9898A8',
-      deep:       '#0F0F16',
-      base:       '#13131A',
-      raised:     '#1A1A24',
-      chrome:     '#0A0A15',
-      fg:         '#F1F5F9',
-      fg2:        'rgba(241, 245, 249, 0.80)',
-      fg3:        'rgba(241, 245, 249, 0.42)',
-      fg4:        'rgba(241, 245, 249, 0.22)',
-      bd:         'rgba(255, 255, 255, 0.10)',
-      bd2:        'rgba(255, 255, 255, 0.05)',
-      gl:         'rgba(255, 255, 255, 0.05)',
+    "mandarina": {
+      "bg": "#C2410C",
+      "fg": "#FFFDF8"
     },
-    sepia: {
-      bg:         '#e2d9cc',
-      surface:    '#f8f4ed',
-      surface2:   '#f0ead9',
-      border:     '#ccc0aa',
-      text:       '#2c1a0e',
-      textMuted:  '#7a6050',
-      deep:       '#e2d9cc',
-      base:       '#f8f4ed',
-      raised:     '#f0ead9',
-      chrome:     '#f8f4ed',
-      fg:         '#2c1a0e',
-      fg2:        '#4a3020',
-      fg3:        '#7a6050',
-      fg4:        'rgba(44, 26, 14, 0.35)',
-      bd:         '#ccc0aa',
-      bd2:        'rgba(204, 192, 170, 0.6)',
-      gl:         'rgba(139, 115, 85, 0.08)',
+    "mostaza": {
+      "bg": "#E8B53A",
+      "fg": "#1E2A22"
     },
+    "tinta": {
+      "bg": "#1E2A22",
+      "fg": "#FFFDF8"
+    },
+    "rosa": {
+      "bg": "#F4B6C2",
+      "fg": "#1E2A22"
+    },
+    "cielo": {
+      "bg": "#A9D3E8",
+      "fg": "#1E2A22"
+    },
+    "pino": {
+      "bg": "#14532D",
+      "fg": "#FFFDF8"
+    },
+    "durazno": {
+      "bg": "#FAD3B5",
+      "fg": "#1E2A22"
+    },
+    "menta": {
+      "bg": "#BFE8C9",
+      "fg": "#1E2A22"
+    },
+    "ciruela": {
+      "bg": "#6B2E4A",
+      "fg": "#FFFDF8"
+    }
   },
-  surface: {
-    deep:   'var(--xd-deep)',
-    base:   'var(--xd-base)',
-    raised: 'var(--xd-raised)',
-    chrome: 'var(--xd-chrome)',
-    fg:     'var(--xd-fg)',
-    fg2:    'var(--xd-fg-2)',
-    fg3:    'var(--xd-fg-3)',
-    fg4:    'var(--xd-fg-4)',
-    bd:     'var(--xd-bd)',
-    bd2:    'var(--xd-bd-2)',
-    gl:     'var(--xd-gl)',
+  "theme": {
+    "light": {
+      "bg": "#FBF6EC",
+      "surface": "#FFFDF8",
+      "raised": "#F3EADA",
+      "chrome": "#FBF6EC",
+      "fg": "#1E2A22",
+      "fg2": "#3F4D43",
+      "fg3": "#5E6B61",
+      "fg4": "#A7AE9F",
+      "bd": "#E3D7C1",
+      "bd2": "#C9B99B",
+      "action": "#166534",
+      "actionFg": "#FFFDF8",
+      "actionHover": "#14532D",
+      "actionEnd": "#C2410C",
+      "link": "#166534",
+      "accent": "#B03A0A",
+      "success": "#166534",
+      "warning": "#8A5A00",
+      "error": "#B42318",
+      "info": "#1D5C8A",
+      "xp": "#166534",
+      "streak": "#B03A0A",
+      "badge": "#7A3B8F",
+      "mustard": "#E8B53A",
+      "paperLine": "#E9DFCB",
+      "brandGreen": "#16A34A",
+      "brandOrange": "#EA580C"
+    },
+    "dark": {
+      "bg": "#16201A",
+      "surface": "#1F2B23",
+      "raised": "#2A382E",
+      "chrome": "#121A15",
+      "fg": "#F6EFE2",
+      "fg2": "#D9CFBD",
+      "fg3": "#B3AA99",
+      "fg4": "#6F7A70",
+      "bd": "#33433A",
+      "bd2": "#4A5C50",
+      "action": "#4ADE80",
+      "actionFg": "#16201A",
+      "actionHover": "#86EFAC",
+      "actionEnd": "#FB923C",
+      "link": "#4ADE80",
+      "accent": "#FB923C",
+      "success": "#4ADE80",
+      "warning": "#F2C75C",
+      "error": "#FB8B80",
+      "info": "#7CC4EE",
+      "xp": "#4ADE80",
+      "streak": "#FB923C",
+      "badge": "#D6A6E8",
+      "mustard": "#F2C75C",
+      "paperLine": "#26332B",
+      "brandGreen": "#4ADE80",
+      "brandOrange": "#FB923C"
+    },
+    "sepia": {
+      "bg": "#F4E9D4",
+      "surface": "#FAF3E3",
+      "raised": "#EADBBE",
+      "chrome": "#F4E9D4",
+      "fg": "#33261A",
+      "fg2": "#5A4632",
+      "fg3": "#6E5A45",
+      "fg4": "#B8A487",
+      "bd": "#DCC9A6",
+      "bd2": "#C2AA80",
+      "action": "#2F5D3A",
+      "actionFg": "#FAF3E3",
+      "actionHover": "#24492D",
+      "actionEnd": "#A8430F",
+      "link": "#2F5D3A",
+      "accent": "#953A0C",
+      "success": "#2F5D3A",
+      "warning": "#7A4F00",
+      "error": "#A3261B",
+      "info": "#2B5577",
+      "xp": "#2F5D3A",
+      "streak": "#953A0C",
+      "badge": "#6E3A7E",
+      "mustard": "#D9A93A",
+      "paperLine": "#E3D3B3",
+      "brandGreen": "#3F8A52",
+      "brandOrange": "#C2561A"
+    }
   },
-  font: {
-    sans: "'Inter', system-ui, -apple-system, sans-serif",
-    mono: "'JetBrains Mono', 'Fira Code', monospace",
+  "font": {
+    "display": "'Fraunces', Georgia, serif",
+    "sans": "'DM Sans', system-ui, -apple-system, sans-serif",
+    "hand": "'Caveat', 'Comic Sans MS', cursive",
+    "mono": "'DM Mono', 'JetBrains Mono', monospace"
   },
-  radius: {
-    sm:   '8px',
-    md:   '12px',
-    lg:   '16px',
-    xl:   '20px',
-    '2xl': '1rem',
-    full: '9999px',
+  "radius": {
+    "sm": "8px",
+    "md": "12px",
+    "lg": "16px",
+    "xl": "20px",
+    "2xl": "28px",
+    "full": "9999px"
   },
-  spacing: {
-    space1: '4px',
-    space2: '8px',
-    space3: '12px',
-    space4: '16px',
-    space5: '24px',
-    space6: '32px',
-    space7: '48px',
-    space8: '64px',
-    space9: '96px',
+  "space": {
+    "1": "4px",
+    "2": "8px",
+    "3": "12px",
+    "4": "16px",
+    "5": "20px",
+    "6": "24px",
+    "7": "32px",
+    "8": "40px",
+    "9": "48px",
+    "10": "64px",
+    "11": "96px"
   },
-  shadow: {
-    actionSm:   '0 4px 16px rgba(22, 163, 74, 0.25)',
-    actionMd:   '0 6px 24px rgba(22, 163, 74, 0.35)',
-    actionGlow: '0 0 32px rgba(22, 163, 74, 0.4)',
-    softSm: 'var(--xd-soft-shadow-sm)',
-    softMd: 'var(--xd-soft-shadow-md)',
-    softLg: 'var(--xd-soft-shadow-lg)',
-    softRing: 'var(--xd-soft-ring)',
-    xs: '0 1px 2px rgba(0, 0, 0, 0.05)',
-    sm: '0 1px 3px rgba(0, 0, 0, 0.1), 0 1px 2px rgba(0, 0, 0, 0.06)',
-    md: '0 4px 6px rgba(0, 0, 0, 0.07), 0 2px 4px rgba(0, 0, 0, 0.06)',
-    lg: '0 10px 15px rgba(0, 0, 0, 0.1), 0 4px 6px rgba(0, 0, 0, 0.05)',
-    xl: '0 20px 25px rgba(0, 0, 0, 0.1), 0 10px 10px rgba(0, 0, 0, 0.04)',
+  "motion": {
+    "durationFast": "120ms",
+    "durationNormal": "180ms",
+    "durationSlow": "280ms",
+    "durationSlower": "450ms",
+    "easeDefault": "ease",
+    "easeInOut": "cubic-bezier(0.4, 0, 0.2, 1)",
+    "easeSpring": "cubic-bezier(0.34, 1.56, 0.64, 1)"
   },
-  motion: {
-    durationFast:   '100ms',
-    durationNormal: '150ms',
-    durationSlow:   '300ms',
-    durationSlower: '500ms',
-    easeDefault:    'ease',
-    easeInOut:      'cubic-bezier(0.4, 0, 0.2, 1)',
-    easeSpring:     'cubic-bezier(0.34, 1.56, 0.64, 1)',
+  "typography": {
+    "textXs": "0.6875rem",
+    "textSm": "0.875rem",
+    "textBase": "1rem",
+    "textLg": "1.125rem",
+    "textXl": "1.25rem",
+    "text2xl": "1.5rem",
+    "text3xl": "1.875rem",
+    "text4xl": "2.25rem",
+    "text5xl": "3rem",
+    "leadingTight": "1.2",
+    "leadingSnug": "1.375",
+    "leadingNormal": "1.5",
+    "leadingRelaxed": "1.625",
+    "leadingLoose": "1.85",
+    "fontNormal": "400",
+    "fontMedium": "500",
+    "fontSemibold": "600",
+    "fontBold": "700",
+    "fontExtrabold": "800",
+    "trackingTight": "-0.03em",
+    "trackingSnug": "-0.02em",
+    "trackingNormal": "0em"
   },
-  typography: {
-    textXs:   '0.6875rem',
-    textSm:   '0.875rem',
-    textBase: '1rem',
-    textLg:   '1.125rem',
-    textXl:   '1.25rem',
-    text2xl:  '1.5rem',
-    text3xl:  '1.875rem',
-    text4xl:  '2.25rem',
-    text5xl:  '3rem',
-    leadingTight:   '1.2',
-    leadingSnug:    '1.375',
-    leadingNormal:  '1.5',
-    leadingRelaxed: '1.625',
-    leadingLoose:   '1.85',
-    fontNormal:    '400',
-    fontMedium:    '500',
-    fontSemibold:  '600',
-    fontBold:      '700',
-    fontExtrabold: '800',
-    trackingTight:  '-0.03em',
-    trackingSnug:   '-0.02em',
-    trackingNormal: '0em',
+  "zIndex": {
+    "dropdown": "10",
+    "sticky": "20",
+    "fixed": "30",
+    "overlay": "40",
+    "modal": "50",
+    "popover": "60",
+    "toast": "70",
+    "tooltip": "100"
   },
-  zIndex: {
-    dropdown: 10,
-    sticky:   20,
-    fixed:    30,
-    overlay:  40,
-    modal:    50,
-    popover:  60,
-    toast:    70,
-    tooltip:  100,
-  },
+  "shadow": {
+    "light": {
+      "paper-sm": "0 1px 0 rgba(30,42,34,.08), 0 4px 10px -4px rgba(107,79,42,.18)",
+      "paper-md": "0 1px 0 rgba(30,42,34,.08), 0 6px 16px -6px rgba(107,79,42,.20)",
+      "paper-lg": "0 2px 0 rgba(30,42,34,.06), 0 20px 50px -10px rgba(107,79,42,.28)"
+    },
+    "dark": {
+      "paper-sm": "0 1px 0 rgba(0,0,0,.4), 0 4px 10px -4px rgba(0,0,0,.5)",
+      "paper-md": "0 1px 0 rgba(0,0,0,.4), 0 8px 20px -8px rgba(0,0,0,.6)",
+      "paper-lg": "0 20px 50px -10px rgba(0,0,0,.7)"
+    },
+    "sepia": {
+      "paper-sm": "0 1px 0 rgba(51,38,26,.08), 0 4px 10px -4px rgba(107,79,42,.22)",
+      "paper-md": "0 1px 0 rgba(51,38,26,.08), 0 6px 16px -6px rgba(107,79,42,.25)",
+      "paper-lg": "0 20px 50px -10px rgba(107,79,42,.32)"
+    }
+  }
 } as const;
 
+export type XdTheme = 'light' | 'dark' | 'sepia';
 export type Tokens = typeof tokens;
+export const THEME_ATTR = 'data-xd-theme';
+
+/** Set the canonical theme attribute. `auto` follows prefers-color-scheme. */
+export function setTheme(t: XdTheme | 'auto', root: HTMLElement = document.documentElement) {
+  const r = t === 'auto' ? (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : t;
+  root.setAttribute(THEME_ATTR, r);
+}
+
+export default tokens;
