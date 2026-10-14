@@ -2,6 +2,33 @@
 
 All notable changes to `@xdface/tokens` are documented here.
 
+## [0.3.0] — 2026-10-14
+
+### Breaking
+- **Removed `--xd-dark-*`.** Forest surfaces replace the old near-black scale (`--xd-forest-*`, `--xd-ink-*`).
+- **Removed `--xd-gradient-dark-chrome`.** Chrome is a flat theme color, `--xd-chrome`.
+- **Removed `--xd-blue-*`.** Use `--xd-info`.
+- **Removed `--xd-shadow-action-*`.** Paper shadows are `--xd-shadow-paper-*` (and the `--xd-soft-shadow-*` aliases).
+- `tokens.gradient.darkChrome` and `tokens.color.blue*` / `tokens.color.dark*` are gone. Buttons no longer paint the grin gradient behind text — use `--xd-action` with `--xd-action-fg`.
+- Theme attribute is `data-xd-theme="light|dark|sepia"`. Legacy selectors still match and will be removed in 2.0: `.dark`, `.xd-dark`, `[data-theme]`, `[data-lib-theme]`.
+
+### Added
+- **Biblioteca personal divertida** palette: paper, ink, forest, sepia, mustard, and ten book-spine colors (`--xd-spine-*-fg` included).
+- `--xd-action-fg`, `--xd-action-hover`, `--xd-link`, `--xd-accent`, `--xd-mustard`, `--xd-paper-line`, `--xd-brand-green`, `--xd-brand-orange`, `--xd-gradient-grin`.
+- Fonts: Fraunces, DM Sans, Caveat, DM Mono (`--xd-font-display|sans|hand|mono`).
+- Spacing `--xd-space-10` (64px) and `--xd-space-11` (96px). `--xd-radius-2xl` is 28px.
+- `setTheme()` and `THEME_ATTR` in `tokens.ts`.
+- `build.py` generates `tokens.css`, `tokens.ts`, `tailwind.preset.js`, `contrast.json`, and the logo SVGs from `tokens.json`. CI fails when those files drift.
+- Sepia logo, transparent marks, and heavier 16px favicons. Dark logo tile is forest `#1F2B23`, not a copy of the light mark.
+- Tailwind preset `dark` variant matches `data-xd-theme` plus the legacy aliases. Tailwind 4 apps should declare the same list with `@custom-variant dark`.
+
+### Changed
+- Light theme is warm paper (`#FBF6EC` / `#FFFDF8`) instead of the green-tinted app surface.
+- `--xd-action` is `#166534` / `#4ADE80` / `#2F5D3A`. `--xd-xp` follows that green. `--xd-streak` is tangerine. `--xd-badge` is plum.
+- `--xd-disabled-opacity` is `1`. Disabled controls use a dashed border and `--xd-fg-3`.
+- `--xd-focus-ring` is a two-layer tangerine ring.
+- Cognito Managed Login colors follow the light and dark themes. Docs site at `design.xdface.net` cycles light, sepia, and dark.
+
 ## [0.2.0] — 2026-07-30
 
 ### Added
