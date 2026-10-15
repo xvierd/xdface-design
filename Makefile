@@ -24,6 +24,8 @@ deploy: build
 	aws --profile theants s3 sync web/dist/ s3://$(BUCKET)/ --delete
 	aws --profile theants s3 cp web/dist/index.html s3://$(BUCKET)/index.html \
 	  --cache-control "no-cache, no-store, must-revalidate"
+	aws --profile theants s3 cp web/dist/styles/global.css s3://$(BUCKET)/styles/global.css \
+	  --cache-control "no-cache, no-store, must-revalidate" --content-type "text/css"
 	aws --profile theants cloudfront create-invalidation \
 	  --distribution-id $(DIST_ID) --paths "/*"
 	@echo "Deployed to https://design.xdface.net"
