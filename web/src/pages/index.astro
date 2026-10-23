@@ -7,7 +7,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>xdface — Design system · Notepad</title>
-  <meta name="description" content="The calm of Notepad, in monochrome or xdface color. One shared design system." />
+  <meta name="description" content="One shared design system. Explore Light Mono, Light Color, Dark and Sepia across Notepad and xdface." />
   <link rel="icon" href="/favicon.svg" type="image/svg+xml" media="(prefers-color-scheme: light)" />
   <link rel="icon" href="/favicon-dark.svg" type="image/svg+xml" media="(prefers-color-scheme: dark)" />
   <link rel="stylesheet" href="/styles/global.css" />
@@ -106,18 +106,26 @@
   <div class="theme-hero-intro">
     <p class="hero-eyebrow"><span></span> XDFACE DESIGN SYSTEM <span class="hero-version">v0.4.0</span></p>
     <h1 id="hero-title">A little space.<br/><span>A clearer mind.</span></h1>
-    <p class="hero-description">The calm of Notepad, in two kinds of light.<br class="hero-desktop-break"/> Pure monochrome or a little xdface color. Always yours.</p>
-    <div class="light-choices" role="group" aria-label="Light theme variants">
-      <button class="light-choice" data-theme-choice="light-mono" aria-pressed="true">
+    <p class="hero-description">One calm space. Four ways to make it yours.<br class="hero-desktop-break"/> White paper, a darker space, or the warmth of sepia.</p>
+    <div class="theme-choices" role="group" aria-label="Choose a theme">
+      <button type="button" class="theme-choice" data-theme-choice="light-mono" aria-pressed="true">
         <span class="choice-top"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="12" cy="12" r="8"/><path d="M12 4a8 8 0 0 0 0 16Z" fill="currentColor" stroke="none"/></svg><span class="choice-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg></span></span>
         <strong>Light · Mono</strong><span>Just ink, paper &amp; your ideas.</span>
       </button>
-      <button class="light-choice" data-theme-choice="light" aria-pressed="false">
+      <button type="button" class="theme-choice" data-theme-choice="light" aria-pressed="false">
         <span class="choice-top"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M12 3a9 9 0 1 0 0 18h1.5a2 2 0 0 0 1.4-3.4 1.7 1.7 0 0 1 1.2-2.9H18a3 3 0 0 0 3-3A9 9 0 0 0 12 3Z"/><circle cx="7.5" cy="10" r=".8"/><circle cx="11" cy="7" r=".8"/><circle cx="15.5" cy="8" r=".8"/></svg><span class="choice-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg></span></span>
         <strong>Light · Color</strong><span>White paper. A familiar spark.</span>
       </button>
+      <button type="button" class="theme-choice" data-theme-choice="dark" aria-pressed="false">
+        <span class="choice-top"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M20.9 13A9 9 0 0 1 11 3.1 9 9 0 1 0 20.9 13Z"/></svg><span class="choice-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg></span></span>
+        <strong>Dark</strong><span>A softer light after hours.</span>
+      </button>
+      <button type="button" class="theme-choice" data-theme-choice="sepia" aria-pressed="false">
+        <span class="choice-top"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M12 7v14M3 4h4a5 5 0 0 1 5 3 5 5 0 0 1 5-3h4v14h-4a5 5 0 0 0-5 3 5 5 0 0 0-5-3H3Z"/></svg><span class="choice-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg></span></span>
+        <strong>Sepia</strong><span>Warm paper. An unhurried read.</span>
+      </button>
     </div>
-    <p class="hero-brand-note">A quieter interface. The same colorful smile.</p>
+    <p class="hero-brand-note">Four themes. The same colorful smile.</p>
   </div>
   <div class="notepad-preview-wrap">
     <div class="notepad-preview" aria-label="Notepad preview in the selected theme">
@@ -149,8 +157,8 @@
 <div id="colors" class="divider"></div>
 <section class="section">
   <p class="section-label">Colors</p>
-  <h2 class="section-title">Two lights. One shared language.</h2>
-  <p class="section-desc">Buttons use solid <code style="font-family:var(--xd-font-mono);">--xd-action</code> with <code style="font-family:var(--xd-font-mono);">--xd-action-fg</code>. Mono keeps every UI token neutral and the logo colorful. Color keeps the canvas white and brings xdface color to the elements. Dark and Sepia remain available.</p>
+  <h2 class="section-title">Four themes. One shared language.</h2>
+  <p class="section-desc">Buttons use solid <code style="font-family:var(--xd-font-mono);">--xd-action</code> with <code style="font-family:var(--xd-font-mono);">--xd-action-fg</code>. Choose white paper with monochrome or colorful details, forest surfaces in Dark, or warm paper in Sepia. The xdface logo keeps its color in every theme.</p>
 
   <div style="height:72px; border-radius: var(--xd-radius-lg); background: var(--xd-gradient-grin); margin-bottom:28px; display:flex; align-items:center; padding:0 24px; justify-content:space-between;">
     <span style="font-size:13px; font-weight:600; color:var(--xd-paper-50);">Grin gradient</span>
