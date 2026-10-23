@@ -1245,18 +1245,19 @@ body { min-height: 100vh; }
 .theme-hero h1 { font: 500 clamp(40px, 4.1vw, 59px)/1.12 var(--xd-font-sans); letter-spacing: -.055em; margin: 0 0 24px; color: var(--xd-fg); }
 .theme-hero h1 > span { color: var(--xd-fg-3); }
 .hero-description { font-size: 14px; line-height: 1.9; color: var(--xd-fg-2); margin: 0 0 30px; }
-.light-choices { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
-.light-choice { padding: 16px 15px; border: 1px solid var(--xd-bd); border-radius: 10px; background: var(--xd-surface); color: var(--xd-fg); text-align: left; font-family: var(--xd-font-sans); cursor: pointer; transition: border-color var(--xd-duration-fast), background var(--xd-duration-fast); }
-.light-choice:hover { border-color: var(--xd-bd-2); background: var(--xd-chrome); }
-.light-choice[aria-pressed="true"] { border-color: var(--xd-action); box-shadow: 0 0 0 .5px var(--xd-action); }
+/* Preserve the old selectors for pages cached before the four-theme showcase. */
+.theme-choices, .light-choices { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+.theme-choice, .light-choice { padding: 16px 15px; border: 1px solid var(--xd-bd); border-radius: 10px; background: var(--xd-surface); color: var(--xd-fg); text-align: left; font-family: var(--xd-font-sans); cursor: pointer; transition: border-color var(--xd-duration-fast), background var(--xd-duration-fast); }
+.theme-choice:hover, .light-choice:hover { border-color: var(--xd-bd-2); background: var(--xd-chrome); }
+.theme-choice[aria-pressed="true"], .light-choice[aria-pressed="true"] { border-color: var(--xd-action); box-shadow: 0 0 0 .5px var(--xd-action); }
 .choice-top { display: flex; align-items: center; justify-content: space-between; margin-bottom: 20px; }
 .choice-top > svg { width: 23px; height: 23px; color: var(--xd-action); }
 .choice-check { display: grid; place-items: center; width: 16px; height: 16px; border: 1px solid var(--xd-bd-2); border-radius: 50%; }
 .choice-check svg { width: 11px; height: 11px; visibility: hidden; }
 [aria-pressed="true"] > .choice-top .choice-check { background: var(--xd-action); color: var(--xd-action-fg); border-color: var(--xd-action); }
 [aria-pressed="true"] > .choice-top .choice-check svg { visibility: visible; }
-.light-choice strong { font-size: 12px; font-weight: 600; display: block; margin-bottom: 5px; }
-.light-choice > span:last-child { display: block; color: var(--xd-fg-3); font-size: 10px; line-height: 1.6; }
+.theme-choice strong, .light-choice strong { font-size: 13px; font-weight: 600; display: block; margin-bottom: 5px; }
+.theme-choice > span:last-child, .light-choice > span:last-child { display: block; color: var(--xd-fg-3); font-size: 11px; line-height: 1.6; }
 .hero-brand-note { font-size: 10px; line-height: 1.8; color: var(--xd-fg-3); margin-top: 15px; }
 .notepad-preview { background: var(--xd-surface); border: 1px solid var(--xd-bd); border-radius: 12px; overflow: hidden; box-shadow: var(--xd-soft-shadow-lg); }
 .preview-topline { height: 39px; padding: 0 15px; display: flex; align-items: center; justify-content: space-between; gap: 12px; border-bottom: 1px solid var(--xd-bd); color: var(--xd-fg-3); font: 8px var(--xd-font-mono); }
@@ -1320,7 +1321,7 @@ body { min-height: 100vh; }
   .theme-hero { grid-template-columns: 1fr; max-width: 650px; padding: 50px 24px 40px; gap: 38px; }
   .hero-eyebrow { margin-bottom: 22px; }
   .theme-hero h1 { font-size: clamp(42px, 8vw, 57px); }
-  .light-choices { max-width: 440px; }
+  .theme-choices, .light-choices { max-width: 440px; }
   .preview-workspace { grid-template-columns: 160px minmax(0, 1fr); }
   .theme-principles { margin-inline: 24px; flex-wrap: wrap; gap: 18px 25px; padding-block: 22px; }
   .theme-principles a { margin-left: 0; }
@@ -1335,8 +1336,8 @@ body { min-height: 100vh; }
   .theme-hero { padding: 40px 20px 34px; }
   .theme-hero h1 { font-size: 44px; }
   .hero-description { font-size: 13px; }
-  .light-choice { padding: 14px 12px; }
-  .light-choice > span:last-child { font-size: 9px; }
+  .theme-choice, .light-choice { padding: 14px 12px; }
+  .theme-choice > span:last-child, .light-choice > span:last-child { font-size: 10px; }
   .preview-workspace { grid-template-columns: 112px minmax(0, 1fr); min-height: 365px; }
   .preview-sidebar { padding-inline: 8px; }
   .preview-brand { gap: 2px; margin-inline: 0; }
