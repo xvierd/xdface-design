@@ -19,6 +19,7 @@ SOURCE = ROOT / "tokens.json"
 
 GENERATED = [
     ROOT / "tokens.css",
+    ROOT / "notepad.css",
     ROOT / "tokens.ts",
     ROOT / "tailwind.preset.js",
     ROOT / "contrast.json",
@@ -193,7 +194,7 @@ def render_css(tok: dict) -> str:
     lines = [
         "/* xdface Design System — CSS Custom Properties (Biblioteca personal divertida)",
         " * GENERATED from tokens.json by build.py — do not edit by hand",
-        ' * Usage: @import \'@xdface/tokens/css\';  Theme: <html data-xd-theme="light|dark|sepia">',
+        ' * Usage: @import \'@xdface/tokens/css\';  Theme: <html data-xd-theme="light|light-mono|dark|sepia">',
         " * Legacy aliases still apply: .dark, .xd-dark, [data-theme], [data-lib-theme].",
         " */",
         "",
@@ -228,16 +229,39 @@ def render_css(tok: dict) -> str:
     for key, value in tok["shadowScale"].items():
         lines.append(f"  --xd-shadow-{key}: {value};")
     lines.append(f"  --xd-overlay-bg: {tok['interaction']['overlay-bg']};")
+    for key, value in tok["highlight"].items():
+        lines.append(f"  --xd-hl-{key}: {value};")
     lines.append("}")
 
+    # Reset these on every theme, including nested theme previews. Only the mark
+    # keeps brand color in Mono; gradients and content palettes follow the UI.
+    defaults = {
+        **tok["primitive"],
+        **{f"spine-{name}": values["bg"] for name, values in tok["spine"].items()},
+        **{f"spine-{name}-fg": values["fg"] for name, values in tok["spine"].items()},
+        **{f"hl-{name}": value for name, value in tok["highlight"].items()},
+        "gradient-action": "linear-gradient(135deg, var(--xd-brand-green) 0%, var(--xd-brand-orange) 100%)",
+        "gradient-grin": tok["semantic"]["gradient-grin"],
+    }
+    override_keys = dict.fromkeys(key for values in tok.get("themeOverrides", {}).values() for key in values)
     for theme, values in tok["theme"].items():
         selectors = tok["selectors"][theme]
         lines.append("")
         lines.append(f"/* theme: {theme} */")
         lines.append(",\n".join(selectors) + " {")
+        lines.append(f"  color-scheme: {'dark' if theme == 'dark' else 'light'};")
         for source, names in THEME_MAP.items():
             for name in names:
                 lines.append(f"  --xd-{name}: {values[source]};")
+        overrides = tok.get("themeOverrides", {}).get(theme, {})
+        for key in override_keys:
+            lines.append(f"  --xd-{key}: {overrides.get(key, defaults[key])};")
+        lines += [
+            "  --xd-gradient-action-hover: var(--xd-gradient-action);",
+            "  --xd-gradient-top-accent: var(--xd-gradient-grin);",
+            f"  --xd-focus-ring: {tok['interaction']['focus-ring']};",
+            "  --xd-soft-ring: var(--xd-focus-ring);",
+        ]
         for key, value in tok["shadow"][theme].items():
             lines.append(f"  --xd-shadow-{key}: {value};")
         lines += [
@@ -258,14 +282,6 @@ def render_css(tok: dict) -> str:
         lines.append("  --xds-shadow-soft-lg: var(--xd-soft-shadow-lg);")
         lines.append("}")
 
-    lines += [
-        "",
-        "/* highlight palette — carried from v0.2, pending a sticker redesign */",
-        ":root {",
-    ]
-    for key, value in tok["highlight"].items():
-        lines.append(f"  --xd-hl-{key}: {value};")
-    lines.append("}")
     lines.append("")
     lines.append(UTILITIES.rstrip())
     lines.append("")
@@ -281,6 +297,7 @@ def render_ts(tok: dict) -> str:
         "color": {camel(key): value for key, value in tok["primitive"].items()},
         "spine": tok["spine"],
         "theme": tok["theme"],
+        "themeOverrides": tok.get("themeOverrides", {}),
         "font": tok["font"],
         "radius": tok["radius"],
         "space": tok["space"],
@@ -298,7 +315,7 @@ def render_ts(tok: dict) -> str:
 
 export const tokens = {body} as const;
 
-export type XdTheme = 'light' | 'dark' | 'sepia';
+export type XdTheme = keyof typeof tokens.theme;
 export type Tokens = typeof tokens;
 export const THEME_ATTR = 'data-xd-theme';
 
@@ -474,10 +491,56 @@ def render_docs_bundle(css: str) -> str:
     return banner + css + "\n" + extra
 
 
+def render_notepad_css(tok: dict) -> str:
+    """Small, vendorable adapter for Notepad; no runtime or sibling dependency."""
+    lines = [
+        "/* GENERATED from xdface-design/tokens.json by build.py. Do not edit.",
+        " * Notepad: run npm run design:sync to copy the canonical adapter. */",
+        ":root {",
+        f"  --white: {tok['primitive']['white']};",
+        f"  --black: {tok['primitive']['black']};",
+        "}",
+    ]
+    aliases = {
+        "paper": "surface", "ink": "fg", "muted": "fg2", "faint": "fg3",
+        "line": "bd", "hover": "raised", "sidebar": "chrome",
+        "inverse": "actionFg", "code-bg": "chrome", "primary": "action",
+        "primary-hover": "actionHover", "primary-fg": "actionFg", "link": "link",
+        "accent": "accent",
+    }
+    for app_theme, canonical in (("light", "light-mono"), ("light-color", "light")):
+        values = tok["theme"][canonical]
+        selectors = ':root,\n:root[data-theme="light"]' if app_theme == "light" else ':root[data-theme="light-color"]'
+        lines.append(selectors + " {")
+        for name, source in aliases.items():
+            lines.append(f"  --{name}: {values[source]};")
+        lines += [
+            "  --selected: color-mix(in srgb, var(--primary) 6%, var(--paper));",
+            "  --selection: color-mix(in srgb, var(--primary) 12%, transparent);",
+            f"  --shadow: {tok['shadow'][canonical]['paper-lg']};",
+            f"  --mark-green: {tok['mark']['light']['green']};",
+            f"  --mark-orange: {tok['mark']['light']['orange']};",
+            "}",
+        ]
+    lines += [
+        ':root[data-theme="dark"] {',
+        f"  --mark-green: {tok['mark']['dark']['green']};",
+        f"  --mark-orange: {tok['mark']['dark']['orange']};",
+        "  --primary: var(--ink);",
+        "  --primary-hover: var(--ink);",
+        "  --primary-fg: var(--inverse);",
+        "  --link: var(--ink);",
+        "  --accent: var(--ink);",
+        "}",
+    ]
+    return "\n".join(lines) + "\n"
+
+
 def outputs(tok: dict) -> dict[str, str]:
     css = render_css(tok)
     files = {
         "tokens.css": css,
+        "notepad.css": render_notepad_css(tok),
         "tokens.ts": render_ts(tok),
         "tailwind.preset.js": render_preset(tok),
         "contrast.json": render_contrast(tok),

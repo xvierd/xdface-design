@@ -41,7 +41,17 @@ export const tokens = {
     "sky200": "#A9D3E8",
     "peach200": "#FAD3B5",
     "mint200": "#BFE8C9",
-    "plum700": "#6B2E4A"
+    "plum700": "#6B2E4A",
+    "white": "#FFFFFF",
+    "black": "#000000",
+    "neutral50": "#FAFAFA",
+    "neutral100": "#F5F5F5",
+    "neutral200": "#EBEBEB",
+    "neutral300": "#D6D6D6",
+    "neutral500": "#6E6E6E",
+    "neutral600": "#666666",
+    "neutral700": "#484848",
+    "neutral900": "#1F1F1F"
   },
   "spine": {
     "hoja": {
@@ -87,18 +97,18 @@ export const tokens = {
   },
   "theme": {
     "light": {
-      "bg": "#FBF6EC",
-      "surface": "#FFFDF8",
-      "raised": "#F3EADA",
-      "chrome": "#FBF6EC",
+      "bg": "#FFFFFF",
+      "surface": "#FFFFFF",
+      "raised": "#FFFFFF",
+      "chrome": "#FFFFFF",
       "fg": "#1E2A22",
       "fg2": "#3F4D43",
       "fg3": "#5E6B61",
       "fg4": "#A7AE9F",
-      "bd": "#E3D7C1",
-      "bd2": "#C9B99B",
+      "bd": "#EBEBEB",
+      "bd2": "#D6D6D6",
       "action": "#166534",
-      "actionFg": "#FFFDF8",
+      "actionFg": "#FFFFFF",
       "actionHover": "#14532D",
       "actionEnd": "#C2410C",
       "link": "#166534",
@@ -111,7 +121,7 @@ export const tokens = {
       "streak": "#B03A0A",
       "badge": "#7A3B8F",
       "mustard": "#E8B53A",
-      "paperLine": "#E9DFCB",
+      "paperLine": "#EBEBEB",
       "brandGreen": "#16A34A",
       "brandOrange": "#EA580C"
     },
@@ -172,6 +182,99 @@ export const tokens = {
       "paperLine": "#E3D3B3",
       "brandGreen": "#3F8A52",
       "brandOrange": "#C2561A"
+    },
+    "light-mono": {
+      "bg": "#FFFFFF",
+      "surface": "#FFFFFF",
+      "raised": "#F5F5F5",
+      "chrome": "#FAFAFA",
+      "fg": "#1F1F1F",
+      "fg2": "#666666",
+      "fg3": "#6E6E6E",
+      "fg4": "#6E6E6E",
+      "bd": "#EBEBEB",
+      "bd2": "#D6D6D6",
+      "action": "#1F1F1F",
+      "actionFg": "#FFFFFF",
+      "actionHover": "#000000",
+      "actionEnd": "#484848",
+      "link": "#1F1F1F",
+      "accent": "#484848",
+      "success": "#484848",
+      "warning": "#484848",
+      "error": "#484848",
+      "info": "#484848",
+      "xp": "#484848",
+      "streak": "#484848",
+      "badge": "#484848",
+      "mustard": "#EBEBEB",
+      "paperLine": "#EBEBEB",
+      "brandGreen": "#16A34A",
+      "brandOrange": "#EA580C"
+    }
+  },
+  "themeOverrides": {
+    "light-mono": {
+      "gradient-action": "linear-gradient(135deg, var(--xd-action), var(--xd-action-hover))",
+      "gradient-grin": "linear-gradient(90deg, var(--xd-fg), var(--xd-fg-2))",
+      "paper-50": "#FFFFFF",
+      "paper-100": "#FAFAFA",
+      "paper-200": "#F5F5F5",
+      "paper-300": "#EBEBEB",
+      "paper-400": "#D6D6D6",
+      "spine-hoja": "#1F1F1F",
+      "spine-hoja-fg": "#FFFFFF",
+      "spine-mandarina": "#484848",
+      "spine-mandarina-fg": "#FFFFFF",
+      "spine-mostaza": "#EBEBEB",
+      "spine-mostaza-fg": "#1F1F1F",
+      "spine-tinta": "#666666",
+      "spine-tinta-fg": "#FFFFFF",
+      "spine-rosa": "#D6D6D6",
+      "spine-rosa-fg": "#1F1F1F",
+      "spine-cielo": "#1F1F1F",
+      "spine-cielo-fg": "#FFFFFF",
+      "spine-pino": "#484848",
+      "spine-pino-fg": "#FFFFFF",
+      "spine-durazno": "#EBEBEB",
+      "spine-durazno-fg": "#1F1F1F",
+      "spine-menta": "#666666",
+      "spine-menta-fg": "#FFFFFF",
+      "spine-ciruela": "#D6D6D6",
+      "spine-ciruela-fg": "#1F1F1F",
+      "hl-yellow": "#EBEBEB",
+      "hl-yellow-ink": "#1F1F1F",
+      "hl-yellow-ring": "#1F1F1F",
+      "hl-yellow-strong": "#1F1F1F",
+      "hl-yellow-bg": "#EBEBEB",
+      "hl-red": "#EBEBEB",
+      "hl-red-ink": "#1F1F1F",
+      "hl-red-ring": "#1F1F1F",
+      "hl-red-strong": "#1F1F1F",
+      "hl-red-bg": "#EBEBEB",
+      "hl-blue": "#EBEBEB",
+      "hl-blue-ink": "#1F1F1F",
+      "hl-blue-ring": "#1F1F1F",
+      "hl-blue-strong": "#1F1F1F",
+      "hl-blue-bg": "#EBEBEB",
+      "hl-green": "#EBEBEB",
+      "hl-green-ink": "#1F1F1F",
+      "hl-green-ring": "#1F1F1F",
+      "hl-green-strong": "#1F1F1F",
+      "hl-green-bg": "#EBEBEB",
+      "hl-yellow-dark-ink": "#1F1F1F",
+      "hl-red-dark-ink": "#1F1F1F",
+      "hl-blue-dark-ink": "#1F1F1F",
+      "hl-green-dark-ink": "#1F1F1F",
+      "hl-card-text": "#1F1F1F",
+      "hl-card-text-muted": "#1F1F1F"
+    },
+    "light": {
+      "paper-50": "#FFFFFF",
+      "paper-100": "#FFFFFF",
+      "paper-200": "#FFFFFF",
+      "paper-300": "#EBEBEB",
+      "paper-400": "#D6D6D6"
     }
   },
   "font": {
@@ -246,9 +349,9 @@ export const tokens = {
   },
   "shadow": {
     "light": {
-      "paper-sm": "0 1px 0 rgba(30,42,34,.08), 0 4px 10px -4px rgba(107,79,42,.18)",
-      "paper-md": "0 1px 0 rgba(30,42,34,.08), 0 6px 16px -6px rgba(107,79,42,.20)",
-      "paper-lg": "0 2px 0 rgba(30,42,34,.06), 0 20px 50px -10px rgba(107,79,42,.28)"
+      "paper-sm": "0 1px 3px rgba(0, 0, 0, 0.1), 0 1px 2px rgba(0, 0, 0, 0.06)",
+      "paper-md": "0 4px 6px rgba(0, 0, 0, 0.07), 0 2px 4px rgba(0, 0, 0, 0.06)",
+      "paper-lg": "0 8px 40px rgba(0, 0, 0, 0.08)"
     },
     "dark": {
       "paper-sm": "0 1px 0 rgba(0,0,0,.4), 0 4px 10px -4px rgba(0,0,0,.5)",
@@ -259,11 +362,16 @@ export const tokens = {
       "paper-sm": "0 1px 0 rgba(51,38,26,.08), 0 4px 10px -4px rgba(107,79,42,.22)",
       "paper-md": "0 1px 0 rgba(51,38,26,.08), 0 6px 16px -6px rgba(107,79,42,.25)",
       "paper-lg": "0 20px 50px -10px rgba(107,79,42,.32)"
+    },
+    "light-mono": {
+      "paper-sm": "0 1px 3px rgba(0, 0, 0, 0.1), 0 1px 2px rgba(0, 0, 0, 0.06)",
+      "paper-md": "0 4px 6px rgba(0, 0, 0, 0.07), 0 2px 4px rgba(0, 0, 0, 0.06)",
+      "paper-lg": "0 8px 40px rgba(0, 0, 0, 0.08)"
     }
   }
 } as const;
 
-export type XdTheme = 'light' | 'dark' | 'sepia';
+export type XdTheme = keyof typeof tokens.theme;
 export type Tokens = typeof tokens;
 export const THEME_ATTR = 'data-xd-theme';
 

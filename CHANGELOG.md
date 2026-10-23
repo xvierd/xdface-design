@@ -2,6 +2,14 @@
 
 All notable changes to `@xdface/tokens` are documented here.
 
+## [0.4.0] — 2026-10-23
+
+### Added
+- Light · Mono (`light-mono`): Notepad's neutral white, black, and gray palette. Semantic colors, gradients, highlights, book spines, and shadows remain monochrome; the xdface mark keeps its colors.
+- Generated `notepad.css` adapter, also exported as `@xdface/tokens/notepad`, for standalone Notepad builds with Mono and Color appearances.
+- Notepad-inspired showcase with direct light choices, a live preview, persistent selection, and keyboard-accessible controls. `light` is the Color theme: pure white surfaces, neutral borders and shadows, and colored interface elements.
+- AA contrast and monochrome-palette checks in `tests/test_themes.py`.
+
 ## [0.3.1] — 2026-10-14
 
 ### Fixed

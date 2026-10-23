@@ -1,0 +1,58 @@
+/* GENERATED from xdface-design/tokens.json by build.py. Do not edit.
+ * Notepad: run npm run design:sync to copy the canonical adapter. */
+:root {
+  --white: #FFFFFF;
+  --black: #000000;
+}
+:root,
+:root[data-theme="light"] {
+  --paper: #FFFFFF;
+  --ink: #1F1F1F;
+  --muted: #666666;
+  --faint: #6E6E6E;
+  --line: #EBEBEB;
+  --hover: #F5F5F5;
+  --sidebar: #FAFAFA;
+  --inverse: #FFFFFF;
+  --code-bg: #FAFAFA;
+  --primary: #1F1F1F;
+  --primary-hover: #000000;
+  --primary-fg: #FFFFFF;
+  --link: #1F1F1F;
+  --accent: #484848;
+  --selected: color-mix(in srgb, var(--primary) 6%, var(--paper));
+  --selection: color-mix(in srgb, var(--primary) 12%, transparent);
+  --shadow: 0 8px 40px rgba(0, 0, 0, 0.08);
+  --mark-green: #16A34A;
+  --mark-orange: #EA580C;
+}
+:root[data-theme="light-color"] {
+  --paper: #FFFFFF;
+  --ink: #1E2A22;
+  --muted: #3F4D43;
+  --faint: #5E6B61;
+  --line: #EBEBEB;
+  --hover: #FFFFFF;
+  --sidebar: #FFFFFF;
+  --inverse: #FFFFFF;
+  --code-bg: #FFFFFF;
+  --primary: #166534;
+  --primary-hover: #14532D;
+  --primary-fg: #FFFFFF;
+  --link: #166534;
+  --accent: #B03A0A;
+  --selected: color-mix(in srgb, var(--primary) 6%, var(--paper));
+  --selection: color-mix(in srgb, var(--primary) 12%, transparent);
+  --shadow: 0 8px 40px rgba(0, 0, 0, 0.08);
+  --mark-green: #16A34A;
+  --mark-orange: #EA580C;
+}
+:root[data-theme="dark"] {
+  --mark-green: #4ADE80;
+  --mark-orange: #FB923C;
+  --primary: var(--ink);
+  --primary-hover: var(--ink);
+  --primary-fg: var(--inverse);
+  --link: var(--ink);
+  --accent: var(--ink);
+}
