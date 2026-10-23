@@ -67,304 +67,304 @@
       "fg",
       "bg",
       "#1E2A22",
-      "#FBF6EC",
-      13.83
+      "#FFFFFF",
+      14.9
     ],
     [
       "light",
       "fg",
       "surface",
       "#1E2A22",
-      "#FFFDF8",
-      14.66
+      "#FFFFFF",
+      14.9
     ],
     [
       "light",
       "fg",
       "raised",
       "#1E2A22",
-      "#F3EADA",
-      12.48
+      "#FFFFFF",
+      14.9
     ],
     [
       "light",
       "fg2",
       "bg",
       "#3F4D43",
-      "#FBF6EC",
-      8.28
+      "#FFFFFF",
+      8.92
     ],
     [
       "light",
       "fg2",
       "surface",
       "#3F4D43",
-      "#FFFDF8",
-      8.78
+      "#FFFFFF",
+      8.92
     ],
     [
       "light",
       "fg2",
       "raised",
       "#3F4D43",
-      "#F3EADA",
-      7.47
+      "#FFFFFF",
+      8.92
     ],
     [
       "light",
       "fg3",
       "bg",
       "#5E6B61",
-      "#FBF6EC",
-      5.2
+      "#FFFFFF",
+      5.6
     ],
     [
       "light",
       "fg3",
       "surface",
       "#5E6B61",
-      "#FFFDF8",
-      5.51
+      "#FFFFFF",
+      5.6
     ],
     [
       "light",
       "fg3",
       "raised",
       "#5E6B61",
-      "#F3EADA",
-      4.69
+      "#FFFFFF",
+      5.6
     ],
     [
       "light",
       "link",
       "bg",
       "#166534",
-      "#FBF6EC",
-      6.62
+      "#FFFFFF",
+      7.13
     ],
     [
       "light",
       "link",
       "surface",
       "#166534",
-      "#FFFDF8",
-      7.01
+      "#FFFFFF",
+      7.13
     ],
     [
       "light",
       "link",
       "raised",
       "#166534",
-      "#F3EADA",
-      5.97
+      "#FFFFFF",
+      7.13
     ],
     [
       "light",
       "accent",
       "bg",
       "#B03A0A",
-      "#FBF6EC",
-      5.64
+      "#FFFFFF",
+      6.08
     ],
     [
       "light",
       "accent",
       "surface",
       "#B03A0A",
-      "#FFFDF8",
-      5.98
+      "#FFFFFF",
+      6.08
     ],
     [
       "light",
       "accent",
       "raised",
       "#B03A0A",
-      "#F3EADA",
-      5.09
+      "#FFFFFF",
+      6.08
     ],
     [
       "light",
       "success",
       "bg",
       "#166534",
-      "#FBF6EC",
-      6.62
+      "#FFFFFF",
+      7.13
     ],
     [
       "light",
       "success",
       "surface",
       "#166534",
-      "#FFFDF8",
-      7.01
+      "#FFFFFF",
+      7.13
     ],
     [
       "light",
       "success",
       "raised",
       "#166534",
-      "#F3EADA",
-      5.97
+      "#FFFFFF",
+      7.13
     ],
     [
       "light",
       "warning",
       "bg",
       "#8A5A00",
-      "#FBF6EC",
-      5.5
+      "#FFFFFF",
+      5.93
     ],
     [
       "light",
       "warning",
       "surface",
       "#8A5A00",
-      "#FFFDF8",
-      5.83
+      "#FFFFFF",
+      5.93
     ],
     [
       "light",
       "warning",
       "raised",
       "#8A5A00",
-      "#F3EADA",
-      4.97
+      "#FFFFFF",
+      5.93
     ],
     [
       "light",
       "error",
       "bg",
       "#B42318",
-      "#FBF6EC",
-      6.1
+      "#FFFFFF",
+      6.57
     ],
     [
       "light",
       "error",
       "surface",
       "#B42318",
-      "#FFFDF8",
-      6.47
+      "#FFFFFF",
+      6.57
     ],
     [
       "light",
       "error",
       "raised",
       "#B42318",
-      "#F3EADA",
-      5.51
+      "#FFFFFF",
+      6.57
     ],
     [
       "light",
       "info",
       "bg",
       "#1D5C8A",
-      "#FBF6EC",
-      6.61
+      "#FFFFFF",
+      7.12
     ],
     [
       "light",
       "info",
       "surface",
       "#1D5C8A",
-      "#FFFDF8",
-      7.0
+      "#FFFFFF",
+      7.12
     ],
     [
       "light",
       "info",
       "raised",
       "#1D5C8A",
-      "#F3EADA",
-      5.96
+      "#FFFFFF",
+      7.12
     ],
     [
       "light",
       "xp",
       "bg",
       "#166534",
-      "#FBF6EC",
-      6.62
+      "#FFFFFF",
+      7.13
     ],
     [
       "light",
       "xp",
       "surface",
       "#166534",
-      "#FFFDF8",
-      7.01
+      "#FFFFFF",
+      7.13
     ],
     [
       "light",
       "xp",
       "raised",
       "#166534",
-      "#F3EADA",
-      5.97
+      "#FFFFFF",
+      7.13
     ],
     [
       "light",
       "streak",
       "bg",
       "#B03A0A",
-      "#FBF6EC",
-      5.64
+      "#FFFFFF",
+      6.08
     ],
     [
       "light",
       "streak",
       "surface",
       "#B03A0A",
-      "#FFFDF8",
-      5.98
+      "#FFFFFF",
+      6.08
     ],
     [
       "light",
       "streak",
       "raised",
       "#B03A0A",
-      "#F3EADA",
-      5.09
+      "#FFFFFF",
+      6.08
     ],
     [
       "light",
       "badge",
       "bg",
       "#7A3B8F",
-      "#FBF6EC",
-      6.84
+      "#FFFFFF",
+      7.37
     ],
     [
       "light",
       "badge",
       "surface",
       "#7A3B8F",
-      "#FFFDF8",
-      7.25
+      "#FFFFFF",
+      7.37
     ],
     [
       "light",
       "badge",
       "raised",
       "#7A3B8F",
-      "#F3EADA",
-      6.17
+      "#FFFFFF",
+      7.37
     ],
     [
       "light",
       "actionFg",
       "action",
-      "#FFFDF8",
+      "#FFFFFF",
       "#166534",
-      7.01
+      7.13
     ],
     [
       "light",
       "actionFg",
       "actionHover",
-      "#FFFDF8",
+      "#FFFFFF",
       "#14532D",
-      8.96
+      9.11
     ],
     [
       "light",
@@ -997,6 +997,318 @@
       "#1E2A22",
       "#D9A93A",
       6.87
+    ],
+    [
+      "light-mono",
+      "fg",
+      "bg",
+      "#1F1F1F",
+      "#FFFFFF",
+      16.48
+    ],
+    [
+      "light-mono",
+      "fg",
+      "surface",
+      "#1F1F1F",
+      "#FFFFFF",
+      16.48
+    ],
+    [
+      "light-mono",
+      "fg",
+      "raised",
+      "#1F1F1F",
+      "#F5F5F5",
+      15.12
+    ],
+    [
+      "light-mono",
+      "fg2",
+      "bg",
+      "#666666",
+      "#FFFFFF",
+      5.74
+    ],
+    [
+      "light-mono",
+      "fg2",
+      "surface",
+      "#666666",
+      "#FFFFFF",
+      5.74
+    ],
+    [
+      "light-mono",
+      "fg2",
+      "raised",
+      "#666666",
+      "#F5F5F5",
+      5.27
+    ],
+    [
+      "light-mono",
+      "fg3",
+      "bg",
+      "#6E6E6E",
+      "#FFFFFF",
+      5.1
+    ],
+    [
+      "light-mono",
+      "fg3",
+      "surface",
+      "#6E6E6E",
+      "#FFFFFF",
+      5.1
+    ],
+    [
+      "light-mono",
+      "fg3",
+      "raised",
+      "#6E6E6E",
+      "#F5F5F5",
+      4.68
+    ],
+    [
+      "light-mono",
+      "link",
+      "bg",
+      "#1F1F1F",
+      "#FFFFFF",
+      16.48
+    ],
+    [
+      "light-mono",
+      "link",
+      "surface",
+      "#1F1F1F",
+      "#FFFFFF",
+      16.48
+    ],
+    [
+      "light-mono",
+      "link",
+      "raised",
+      "#1F1F1F",
+      "#F5F5F5",
+      15.12
+    ],
+    [
+      "light-mono",
+      "accent",
+      "bg",
+      "#484848",
+      "#FFFFFF",
+      9.15
+    ],
+    [
+      "light-mono",
+      "accent",
+      "surface",
+      "#484848",
+      "#FFFFFF",
+      9.15
+    ],
+    [
+      "light-mono",
+      "accent",
+      "raised",
+      "#484848",
+      "#F5F5F5",
+      8.39
+    ],
+    [
+      "light-mono",
+      "success",
+      "bg",
+      "#484848",
+      "#FFFFFF",
+      9.15
+    ],
+    [
+      "light-mono",
+      "success",
+      "surface",
+      "#484848",
+      "#FFFFFF",
+      9.15
+    ],
+    [
+      "light-mono",
+      "success",
+      "raised",
+      "#484848",
+      "#F5F5F5",
+      8.39
+    ],
+    [
+      "light-mono",
+      "warning",
+      "bg",
+      "#484848",
+      "#FFFFFF",
+      9.15
+    ],
+    [
+      "light-mono",
+      "warning",
+      "surface",
+      "#484848",
+      "#FFFFFF",
+      9.15
+    ],
+    [
+      "light-mono",
+      "warning",
+      "raised",
+      "#484848",
+      "#F5F5F5",
+      8.39
+    ],
+    [
+      "light-mono",
+      "error",
+      "bg",
+      "#484848",
+      "#FFFFFF",
+      9.15
+    ],
+    [
+      "light-mono",
+      "error",
+      "surface",
+      "#484848",
+      "#FFFFFF",
+      9.15
+    ],
+    [
+      "light-mono",
+      "error",
+      "raised",
+      "#484848",
+      "#F5F5F5",
+      8.39
+    ],
+    [
+      "light-mono",
+      "info",
+      "bg",
+      "#484848",
+      "#FFFFFF",
+      9.15
+    ],
+    [
+      "light-mono",
+      "info",
+      "surface",
+      "#484848",
+      "#FFFFFF",
+      9.15
+    ],
+    [
+      "light-mono",
+      "info",
+      "raised",
+      "#484848",
+      "#F5F5F5",
+      8.39
+    ],
+    [
+      "light-mono",
+      "xp",
+      "bg",
+      "#484848",
+      "#FFFFFF",
+      9.15
+    ],
+    [
+      "light-mono",
+      "xp",
+      "surface",
+      "#484848",
+      "#FFFFFF",
+      9.15
+    ],
+    [
+      "light-mono",
+      "xp",
+      "raised",
+      "#484848",
+      "#F5F5F5",
+      8.39
+    ],
+    [
+      "light-mono",
+      "streak",
+      "bg",
+      "#484848",
+      "#FFFFFF",
+      9.15
+    ],
+    [
+      "light-mono",
+      "streak",
+      "surface",
+      "#484848",
+      "#FFFFFF",
+      9.15
+    ],
+    [
+      "light-mono",
+      "streak",
+      "raised",
+      "#484848",
+      "#F5F5F5",
+      8.39
+    ],
+    [
+      "light-mono",
+      "badge",
+      "bg",
+      "#484848",
+      "#FFFFFF",
+      9.15
+    ],
+    [
+      "light-mono",
+      "badge",
+      "surface",
+      "#484848",
+      "#FFFFFF",
+      9.15
+    ],
+    [
+      "light-mono",
+      "badge",
+      "raised",
+      "#484848",
+      "#F5F5F5",
+      8.39
+    ],
+    [
+      "light-mono",
+      "actionFg",
+      "action",
+      "#FFFFFF",
+      "#1F1F1F",
+      16.48
+    ],
+    [
+      "light-mono",
+      "actionFg",
+      "actionHover",
+      "#FFFFFF",
+      "#000000",
+      21.0
+    ],
+    [
+      "light-mono",
+      "ink",
+      "mustard",
+      "#1E2A22",
+      "#EBEBEB",
+      12.5
     ]
   ],
   "bad": [],
@@ -1004,17 +1316,17 @@
     [
       "light",
       "bg",
-      2.12
+      2.28
     ],
     [
       "light",
       "surface",
-      2.25
+      2.28
     ],
     [
       "light",
       "raised",
-      1.91
+      2.28
     ],
     [
       "dark",
@@ -1045,6 +1357,21 @@
       "sepia",
       "raised",
       1.77
+    ],
+    [
+      "light-mono",
+      "bg",
+      5.1
+    ],
+    [
+      "light-mono",
+      "surface",
+      5.1
+    ],
+    [
+      "light-mono",
+      "raised",
+      4.68
     ]
   ],
   "logo": {

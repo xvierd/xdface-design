@@ -17,6 +17,9 @@ jobs:
       - name: Generated tokens match tokens.json
         run: python3 build.py --check
 
+      - name: Theme contrast and monochrome palette
+        run: python3 -m unittest discover -s tests
+
       - uses: actions/setup-node@v4
         with:
           node-version: '22'

@@ -1,7 +1,7 @@
 {
   "name": "@xdface/tokens",
-  "version": "0.3.1",
-  "description": "xdface Design System — Biblioteca personal divertida. CSS variables, TypeScript constants, and Tailwind preset",
+  "version": "0.4.0",
+  "description": "xdface Design System \u2014 Biblioteca personal divertida. CSS variables, TypeScript constants, and Tailwind preset",
   "license": "MIT",
   "repository": {
     "type": "git",
@@ -18,13 +18,15 @@
     },
     "./css": "./tokens.css",
     "./json": "./tokens.json",
-    "./tailwind": "./tailwind.preset.js"
+    "./tailwind": "./tailwind.preset.js",
+    "./notepad": "./notepad.css"
   },
   "files": [
     "dist",
     "tokens.css",
     "tokens.json",
-    "tailwind.preset.js"
+    "tailwind.preset.js",
+    "notepad.css"
   ],
   "scripts": {
     "generate": "python3 build.py",

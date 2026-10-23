@@ -2,19 +2,20 @@
 // xdface Design System — design.xdface.net
 ---
 <!DOCTYPE html>
-<html lang="en" data-xd-theme="light">
+<html lang="en" data-xd-theme="light-mono">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>xdface — Biblioteca personal divertida</title>
-  <meta name="description" content="Paper, forest, and sepia tokens for the xdface library." />
+  <title>xdface — Design system · Notepad</title>
+  <meta name="description" content="The calm of Notepad, in monochrome or xdface color. One shared design system." />
   <link rel="icon" href="/favicon.svg" type="image/svg+xml" media="(prefers-color-scheme: light)" />
   <link rel="icon" href="/favicon-dark.svg" type="image/svg+xml" media="(prefers-color-scheme: dark)" />
   <link rel="stylesheet" href="/styles/global.css" />
   <script is:inline>
     (function () {
-      var t = localStorage.getItem('xd-theme') || 'light';
-      if (t !== 'light' && t !== 'dark' && t !== 'sepia') t = 'light';
+      var t = 'light-mono';
+      try { t = localStorage.getItem('xd-theme') || t; } catch {}
+      if (!['light-mono', 'light', 'dark', 'sepia'].includes(t)) t = 'light-mono';
       document.documentElement.setAttribute('data-xd-theme', t);
     })();
   </script>
@@ -48,7 +49,7 @@
     }
     .xd-code-block .xd-code-copy.copied {
       opacity: 1;
-      color: #4ade80;
+      color: var(--xd-success);
     }
     .xd-code-section-label {
       font-size: 11px;
@@ -59,11 +60,11 @@
       margin-bottom: 8px;
       margin-top: 24px;
     }
-    .xd-code-block .kw  { color: #c792ea; }
-    .xd-code-block .str { color: #c3e88d; }
-    .xd-code-block .cm  { color: #546e7a; font-style: italic; }
-    .xd-code-block .attr { color: #82aaff; }
-    .xd-code-block .val  { color: #f78c6c; }
+    .xd-code-block .kw  { color: var(--xd-badge); }
+    .xd-code-block .str { color: var(--xd-link); }
+    .xd-code-block .cm  { color: var(--xd-fg-3); font-style: italic; }
+    .xd-code-block .attr { color: var(--xd-info); }
+    .xd-code-block .val  { color: var(--xd-accent); }
   </style>
 </head>
 <body>
@@ -71,79 +72,76 @@
 <!-- ══════════════════════════════════════════
      TOP NAV
 ══════════════════════════════════════════ -->
-<nav style="position:sticky; top:0; z-index:100; background:var(--xd-surface); border-bottom:1px solid var(--xd-border);">
-  <div style="max-width:900px; margin:0 auto; padding:0 16px; height:52px; display:flex; align-items:center; justify-content:space-between;">
-
-    <!-- Brand (Issue #1: theme-aware logo) -->
-    <div style="display:flex; align-items:center; gap:10px; flex-shrink:0;">
-      <div class="logo-glow-wrap" style="width:28px; height:28px;">
-        <img src="/logo.svg" alt="" width="28" height="28" class="logo-light" style="border-radius:7px; position:relative; z-index:1;" />
-        <img src="/logo-dark.svg" alt="" width="28" height="28" class="logo-dark" style="border-radius:7px; position:relative; z-index:1;" />
-        <img src="/logo-sepia.svg" alt="" width="28" height="28" class="logo-sepia" style="border-radius:7px; position:relative; z-index:1;" />
-      </div>
-      <span class="gradient-text nav-brand-text" style="font-size:18px; font-weight:650; letter-spacing:-0.02em;">xdface</span>
-      <span class="nav-subtitle" style="font-size:13px; color:var(--xd-text-muted);">Biblioteca</span>
+<nav class="showcase-nav" aria-label="Design system navigation">
+  <div class="showcase-nav-inner">
+    <a class="showcase-brand" href="#" aria-label="xdface design, home">
+      <img src="/logo-mark-transparent-light.svg" alt="" width="34" height="34" class="logo-light" />
+      <img src="/logo-mark-transparent-dark.svg" alt="" width="34" height="34" class="logo-dark" />
+      <img src="/logo-mark-transparent-light.svg" alt="" width="34" height="34" class="logo-sepia" />
+      <span>xdface<span class="showcase-brand-dot">.</span></span><span class="showcase-brand-caption">design system</span>
+    </a>
+    <div class="showcase-nav-links">
+      <a href="#themes" class="nav-link">Themes</a>
+      <a href="#colors" class="nav-link nav-hide-sm">Colors</a>
+      <a href="#components" class="nav-link nav-hide-sm">Components</a>
+      <a href="#tokens" class="nav-link nav-hide-sm">Tokens</a>
+      <label class="showcase-theme-select">
+        <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="12" cy="12" r="8"/><path d="M12 4v16"/></svg>
+        <select id="theme-select" aria-label="Choose theme">
+          <option value="light-mono">Light · Mono</option>
+          <option value="light">Light · Color</option>
+          <option value="dark">Dark</option>
+          <option value="sepia">Sepia</option>
+        </select>
+      </label>
     </div>
-
-    <!-- Links + toggle -->
-    <div style="display:flex; align-items:center; gap:2px;">
-      <a href="#colors"     class="nav-link" style="font-size:13px; color:var(--xd-text-muted); text-decoration:none; padding:6px 10px; border-radius:8px; white-space:nowrap;">Colors</a>
-      <a href="#type"       class="nav-link nav-hide-sm" style="font-size:13px; color:var(--xd-text-muted); text-decoration:none; padding:6px 10px; border-radius:8px; white-space:nowrap;">Type</a>
-      <a href="#components" class="nav-link nav-hide-sm" style="font-size:13px; color:var(--xd-text-muted); text-decoration:none; padding:6px 10px; border-radius:8px; white-space:nowrap;">Components</a>
-      <a href="#forms"      class="nav-link nav-hide-sm" style="font-size:13px; color:var(--xd-text-muted); text-decoration:none; padding:6px 10px; border-radius:8px; white-space:nowrap;">Forms</a>
-      <a href="#feedback"   class="nav-link nav-hide-sm" style="font-size:13px; color:var(--xd-text-muted); text-decoration:none; padding:6px 10px; border-radius:8px; white-space:nowrap;">Feedback</a>
-      <a href="#tokens"     class="nav-link nav-hide-sm" style="font-size:13px; color:var(--xd-text-muted); text-decoration:none; padding:6px 10px; border-radius:8px; white-space:nowrap;">Tokens</a>
-      <a href="#logos"      class="nav-link nav-hide-sm" style="font-size:13px; color:var(--xd-text-muted); text-decoration:none; padding:6px 10px; border-radius:8px; white-space:nowrap;">Logos</a>
-      <a href="#motion"     class="nav-link nav-hide-sm" style="font-size:13px; color:var(--xd-text-muted); text-decoration:none; padding:6px 10px; border-radius:8px; white-space:nowrap;">Motion</a>
-      <a href="#new-components" class="nav-link nav-hide-sm" style="font-size:13px; color:var(--xd-text-muted); text-decoration:none; padding:6px 10px; border-radius:8px; white-space:nowrap;">New</a>
-
-      <!-- Theme toggle -->
-      <button id="theme-toggle" onclick="toggleTheme()" style="
-        display:flex; align-items:center; gap:6px; margin-left:4px;
-        background:var(--xd-surface-2); border:1px solid var(--xd-border);
-        border-radius:8px; padding:6px 12px; font-size:12px; font-weight:500;
-        color:var(--xd-text-muted); cursor:pointer; font-family:var(--xd-font-sans);
-        transition: border-color 0.15s;
-      ">
-        <span id="theme-icon" style="font-size:14px; line-height:1;">☀</span>
-        <span id="theme-label" class="nav-hide-sm" style="white-space:nowrap;">Light</span>
-      </button>
-    </div>
-
   </div>
-  <div style="height:2px; background:var(--xd-gradient-top-accent);"></div>
 </nav>
-
 
 <!-- ══════════════════════════════════════════
      HERO
 ══════════════════════════════════════════ -->
-<section style="background: var(--xd-bg); padding: 72px 24px 80px; text-align: center; position: relative; overflow: hidden;">
-  <div style="position:relative; z-index:1; max-width:680px; margin:0 auto;">
-    <div style="display:inline-flex; align-items:center; gap:8px; background:var(--xd-surface); border:1px solid var(--xd-bd); border-radius:99px; padding:5px 14px; margin-bottom:28px; box-shadow: var(--xd-shadow-paper-sm);">
-      <div style="width:6px;height:6px;border-radius:50%;background:var(--xd-action);"></div>
-      <span style="font-size:12px; font-weight:600; color:var(--xd-fg-2); letter-spacing:0.06em;">BIBLIOTECA PERSONAL DIVERTIDA · v0.3.0</span>
+<main>
+<section class="theme-hero" id="themes" aria-labelledby="hero-title">
+  <div class="theme-hero-intro">
+    <p class="hero-eyebrow"><span></span> XDFACE DESIGN SYSTEM <span class="hero-version">v0.4.0</span></p>
+    <h1 id="hero-title">A little space.<br/><span>A clearer mind.</span></h1>
+    <p class="hero-description">The calm of Notepad, in two kinds of light.<br class="hero-desktop-break"/> Pure monochrome or a little xdface color. Always yours.</p>
+    <div class="light-choices" role="group" aria-label="Light theme variants">
+      <button class="light-choice" data-theme-choice="light-mono" aria-pressed="true">
+        <span class="choice-top"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="12" cy="12" r="8"/><path d="M12 4a8 8 0 0 0 0 16Z" fill="currentColor" stroke="none"/></svg><span class="choice-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg></span></span>
+        <strong>Light · Mono</strong><span>Just ink, paper &amp; your ideas.</span>
+      </button>
+      <button class="light-choice" data-theme-choice="light" aria-pressed="false">
+        <span class="choice-top"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M12 3a9 9 0 1 0 0 18h1.5a2 2 0 0 0 1.4-3.4 1.7 1.7 0 0 1 1.2-2.9H18a3 3 0 0 0 3-3A9 9 0 0 0 12 3Z"/><circle cx="7.5" cy="10" r=".8"/><circle cx="11" cy="7" r=".8"/><circle cx="15.5" cy="8" r=".8"/></svg><span class="choice-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg></span></span>
+        <strong>Light · Color</strong><span>White paper. A familiar spark.</span>
+      </button>
     </div>
-
-    <h1 style="font-size:clamp(42px, 6vw, 68px); font-weight:650; letter-spacing:-0.03em; line-height:1.02; color:var(--xd-fg); margin-bottom:18px;">
-      A shelf that<br/>feels like <span class="xd-grin-underline">yours</span>
-    </h1>
-
-    <p style="font-size:18px; color:var(--xd-fg-2); line-height:1.6; margin-bottom:28px; font-family: var(--xd-font-sans);">
-      Paper, forest, and sepia. One attribute, <code style="font-family:var(--xd-font-mono); font-size:14px;">data-xd-theme</code>, paints every xdface app.
-    </p>
-
-    <div onclick="navigator.clipboard.writeText('npm install @xdface/tokens')" style="display:inline-flex; align-items:center; gap:12px; background:var(--xd-surface); border:1px solid var(--xd-bd); border-radius:12px; padding:12px 20px; font-family:var(--xd-font-mono); font-size:14px; color:var(--xd-fg); cursor:pointer; margin-bottom:32px; box-shadow: var(--xd-shadow-paper-sm);">
-      <span style="color:var(--xd-accent);">$</span> npm install @xdface/tokens
+    <p class="hero-brand-note">A quieter interface. The same colorful smile.</p>
+  </div>
+  <div class="notepad-preview-wrap">
+    <div class="notepad-preview" aria-label="Notepad preview in the selected theme">
+      <div class="preview-topline"><span class="preview-window-dots" aria-hidden="true"><i></i><i></i><i></i></span><span>notepad.xdface.net</span><span class="preview-local">local</span></div>
+      <div class="preview-workspace">
+        <aside class="preview-sidebar">
+          <div class="preview-brand"><img src="/logo-mark-transparent-light.svg" alt="" width="28" height="28" class="logo-light"/><img src="/logo-mark-transparent-dark.svg" alt="" width="28" height="28" class="logo-dark"/><img src="/logo-mark-transparent-light.svg" alt="" width="28" height="28" class="logo-sepia"/><strong>notepad<span>.</span></strong></div>
+          <div class="preview-new"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>New note<span>⌥ N</span></div>
+          <p class="preview-list-label">YOUR NOTES <span>3</span></p>
+          <div class="preview-note selected"><strong>A place to think</strong><span>Make room for what matters.</span><small>Just now</small></div>
+          <div class="preview-note"><strong>Small observations</strong><span>Good ideas start small.</span><small>Yesterday</small></div>
+          <div class="preview-note"><strong>Things to make</strong><span>A few things worth trying.</span><small>Oct 21</small></div>
+          <p class="preview-sidebar-footer"><span class="status-indicator"></span>Saved in this browser</p>
+        </aside>
+        <div class="preview-document">
+          <div class="preview-doc-breadcrumb">My space <span>/</span> A place to think</div>
+          <div class="preview-doc-content"><p class="preview-doc-eyebrow">A LITTLE SPACE FOR YOUR IDEAS</p><h2>A place to think<span>.</span></h2><p>Every good idea starts with a little room.</p><p>No rush. No noise. Just a blank page and whatever is on your mind.</p><h3>Keep it simple</h3><ul><li>Write something worth remembering.</li><li>Let one idea lead to another.</li><li>Make a little space for yourself.</li></ul><blockquote>Less around you.<br/>More room for you.</blockquote><div class="preview-doc-rule"></div><div class="preview-saved"><span class="status-indicator"></span>All changes saved<span>Markdown</span></div></div>
+        </div>
+      </div>
     </div>
-
-    <div class="hero-buttons" style="display:flex; gap:12px; justify-content:center; flex-wrap:wrap;">
-      <a href="#colors" style="text-decoration:none;"><button class="xd-btn-action">Open the palette</button></a>
-      <a href="https://xdface.net" target="_blank" style="text-decoration:none;"><button class="xd-btn-ghost">xdface.net</button></a>
-    </div>
+    <div class="preview-caption"><span><span class="status-indicator"></span> LIVE THEME PREVIEW</span><a href="https://notepad.xdface.net/" target="_blank" rel="noopener noreferrer">Open Notepad <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M7 17 17 7M7 7h10v10"/></svg></a></div>
   </div>
 </section>
-
+<div class="theme-principles"><span><strong>01</strong> Quiet surfaces</span><span><strong>02</strong> Thoughtful contrast</span><span><strong>03</strong> Color with intention</span><a href="#colors">Explore the system <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M12 5v14m-5-5 5 5 5-5"/></svg></a></div>
 
 <!-- ══════════════════════════════════════════
      COLORS
@@ -151,8 +149,8 @@
 <div id="colors" class="divider"></div>
 <section class="section">
   <p class="section-label">Colors</p>
-  <h2 class="section-title">Paper, forest, sepia</h2>
-  <p class="section-desc">Buttons use solid <code style="font-family:var(--xd-font-mono);">--xd-action</code> with <code style="font-family:var(--xd-font-mono);">--xd-action-fg</code>. The grin gradient is for marks and progress, not for text on a button.</p>
+  <h2 class="section-title">Two lights. One shared language.</h2>
+  <p class="section-desc">Buttons use solid <code style="font-family:var(--xd-font-mono);">--xd-action</code> with <code style="font-family:var(--xd-font-mono);">--xd-action-fg</code>. Mono keeps every UI token neutral and the logo colorful. Color keeps the canvas white and brings xdface color to the elements. Dark and Sepia remain available.</p>
 
   <div style="height:72px; border-radius: var(--xd-radius-lg); background: var(--xd-gradient-grin); margin-bottom:28px; display:flex; align-items:center; padding:0 24px; justify-content:space-between;">
     <span style="font-size:13px; font-weight:600; color:var(--xd-paper-50);">Grin gradient</span>
@@ -197,9 +195,9 @@
 
   <div class="card" style="overflow:hidden;">
     <div style="min-height:120px; background: var(--xd-chrome); display:flex; align-items:center; padding:24px; gap:16px; border-bottom:1px solid var(--xd-bd);">
-      <img src="/logo.svg" alt="" width="40" height="40" class="logo-light" style="border-radius:10px;" />
-      <img src="/logo-dark.svg" alt="" width="40" height="40" class="logo-dark" style="border-radius:10px;" />
-      <img src="/logo-sepia.svg" alt="" width="40" height="40" class="logo-sepia" style="border-radius:10px;" />
+      <img src="/logo-mark-transparent-light.svg" alt="" width="40" height="40" class="logo-light" style="border-radius:10px;" />
+      <img src="/logo-mark-transparent-dark.svg" alt="" width="40" height="40" class="logo-dark" style="border-radius:10px;" />
+      <img src="/logo-mark-transparent-light.svg" alt="" width="40" height="40" class="logo-sepia" style="border-radius:10px;" />
       <div>
         <p style="font-family:var(--xd-font-display); font-size:22px; color:var(--xd-fg);">xdface</p>
         <p style="font-size:12px; color:var(--xd-fg-3);">Theme chrome follows data-xd-theme</p>
@@ -374,7 +372,7 @@
         <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/><path d="M4 22h16"/><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"/><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"/><path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"/></svg>
         Nivel 4
       </span>
-      <span class="xd-badge" style="background:rgba(96,165,250,0.12); color:#60A5FA; border:1px solid rgba(96,165,250,0.2);">Beta</span>
+      <span class="xd-badge" style="background:color-mix(in srgb, var(--xd-info) 12%, transparent); color:var(--xd-info); border:1px solid color-mix(in srgb, var(--xd-info) 20%, transparent);">Beta</span>
     </div>
 
     <!-- Badges: code example -->
@@ -445,9 +443,9 @@
         <div style="height:3px; background:var(--xd-gradient-grin);"></div>
         <div style="padding:14px 12px 12px;">
           <div style="display:flex; align-items:center; gap:8px; padding:0 4px 14px;">
-            <img src="/logo.svg" alt="" width="26" height="26" class="logo-light" style="border-radius:6px;" />
-            <img src="/logo-dark.svg" alt="" width="26" height="26" class="logo-dark" style="border-radius:6px;" />
-            <img src="/logo-sepia.svg" alt="" width="26" height="26" class="logo-sepia" style="border-radius:6px;" />
+            <img src="/logo-mark-transparent-light.svg" alt="" width="26" height="26" class="logo-light" style="border-radius:6px;" />
+            <img src="/logo-mark-transparent-dark.svg" alt="" width="26" height="26" class="logo-dark" style="border-radius:6px;" />
+            <img src="/logo-mark-transparent-light.svg" alt="" width="26" height="26" class="logo-sepia" style="border-radius:6px;" />
             <div>
               <p class="gradient-text" style="font-size:16px; font-weight:650;">xdface</p>
               <p style="font-size:9px; color:var(--xd-fg-3); letter-spacing:0.15em; text-transform:uppercase;">library</p>
@@ -494,7 +492,7 @@
 <section class="section">
   <p class="section-label">Forms</p>
   <h2 class="section-title">Form components</h2>
-  <p class="section-desc">Inputs, selects, checkboxes, and toggles. Focus is the tangerine ring. Disabled controls use a dashed border, not opacity.</p>
+  <p class="section-desc">Inputs, selects, checkboxes, and toggles. Focus rings follow the active theme. Disabled controls use a dashed border, not opacity.</p>
 
   <!-- Text inputs -->
   <div class="card" style="padding:32px; margin-bottom:16px;">
@@ -861,7 +859,7 @@
 
   <!-- Effects -->
   <h2 class="section-title">Paper shadows</h2>
-  <p class="section-desc" style="margin-top:6px;">Brown paper shadows. <code style="font-family:var(--xd-font-mono);">--xd-soft-shadow-*</code> aliases the same values.</p>
+  <p class="section-desc" style="margin-top:6px;">Neutral shadows keep both light themes on a clean white canvas. <code style="font-family:var(--xd-font-mono);">--xd-soft-shadow-*</code> follows the selected theme.</p>
 
   <div class="grid-3" style="margin-bottom:40px;">
     <div class="card" style="padding:28px; display:flex; flex-direction:column; align-items:center; gap:16px; text-align:center;">
@@ -921,8 +919,8 @@
   <div class="grid-3" style="margin-bottom:24px;">
     {[
       ['Light', '/logo.svg', 'var(--xd-paper-100)'],
-      ['Dark', '/logo-dark.svg', 'var(--xd-forest-900)'],
-      ['Sepia', '/logo-sepia.svg', 'var(--xd-sepia-200)'],
+      ['Dark', '/logo-dark.svg', 'var(--xd-chrome)'],
+      ['Sepia', '/logo-sepia.svg', 'var(--xd-raised)'],
     ].map(([label, src, bg]) => (
       <div class="card" style="padding:28px; display:flex; flex-direction:column; align-items:center; gap:14px;">
         <div style={`background:${bg}; border-radius:20px; padding:18px;`}>
@@ -940,11 +938,11 @@
         <p style="font-size:13px; color:var(--xd-fg-3);">logo-mark-transparent-light.svg</p>
       </div>
     </div>
-    <div class="card" style="padding:24px; display:flex; align-items:center; gap:16px; background:var(--xd-forest-800);">
+    <div class="card" style="padding:24px; display:flex; align-items:center; gap:16px; background:var(--xd-neutral-900);">
       <img src="/logo-mark-transparent-dark.svg" alt="" width="64" height="64" />
       <div>
         <p style="font-weight:600; color:var(--xd-paper-50);">Transparent mark, dark ink</p>
-        <p style="font-size:13px; color:#D9CFBD;">logo-mark-transparent-dark.svg</p>
+        <p style="font-size:13px; color:var(--xd-paper-300);">logo-mark-transparent-dark.svg</p>
       </div>
     </div>
   </div>
@@ -1317,6 +1315,7 @@ style=&#123;&#123;
      FOOTER
 ══════════════════════════════════════════ -->
 <div class="divider"></div>
+</main>
 <footer style="background: var(--xd-chrome); padding: 48px 24px; text-align: center; position: relative; border-top: 1px solid var(--xd-bd);">
   <div style="height:3px; position:absolute; top:0; left:0; right:0; background:var(--xd-gradient-grin);"></div>
   <p style="font-family:var(--xd-font-display); font-size:18px; color:var(--xd-fg); margin-bottom:8px;">Biblioteca personal divertida</p>
@@ -1344,35 +1343,24 @@ style=&#123;&#123;
   window.copyCode = copyCode;
 </script>
 
-<!-- ── Theme toggle script ── -->
+<!-- Theme choices share a single persisted source of truth. -->
 <script>
-  // Init from localStorage
-  const order = ['light', 'sepia', 'dark'];
-  const saved = localStorage.getItem('xd-theme') || 'light';
-  const initial = order.includes(saved) ? saved : 'light';
-  document.documentElement.setAttribute('data-xd-theme', initial);
-  updateToggle(initial);
-
-  function toggleTheme() {
-    const current = document.documentElement.getAttribute('data-xd-theme') || 'light';
-    const next = order[(order.indexOf(current) + 1) % order.length];
-    document.documentElement.setAttribute('data-xd-theme', next);
-    localStorage.setItem('xd-theme', next);
-    updateToggle(next);
+  const themeSelect = document.querySelector<HTMLSelectElement>('#theme-select');
+  const themeChoices = document.querySelectorAll<HTMLButtonElement>('[data-theme-choice]');
+  const themes = ['light-mono', 'light', 'dark', 'sepia'];
+  function applyTheme(theme: string) {
+    if (!themes.includes(theme)) return;
+    document.documentElement.setAttribute('data-xd-theme', theme);
+    if (themeSelect) themeSelect.value = theme;
+    themeChoices.forEach(button => button.setAttribute('aria-pressed', String(button.dataset.themeChoice === theme)));
   }
-
-  function updateToggle(theme) {
-    const icon = document.getElementById('theme-icon');
-    const label = document.getElementById('theme-label');
-    if (!icon || !label) return;
-    const faces = { light: ['☀', 'Light'], sepia: ['☾', 'Sepia'], dark: ['●', 'Dark'] };
-    const face = faces[theme] || faces.light;
-    icon.textContent = face[0];
-    label.textContent = face[1];
+  function chooseTheme(theme: string) {
+    applyTheme(theme);
+    try { localStorage.setItem('xd-theme', theme); } catch {}
   }
-
-  // Expose for onclick
-  window.toggleTheme = toggleTheme;
+  applyTheme(document.documentElement.getAttribute('data-xd-theme') || 'light-mono');
+  themeSelect?.addEventListener('change', () => chooseTheme(themeSelect.value));
+  themeChoices.forEach(button => button.addEventListener('click', () => chooseTheme(button.dataset.themeChoice!)));
 </script>
 
 <!-- ── Token pill: click-to-copy ── -->
