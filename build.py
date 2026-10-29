@@ -508,9 +508,9 @@ def render_notepad_css(tok: dict) -> str:
         "primary-hover": "actionHover", "primary-fg": "actionFg", "link": "link",
         "accent": "accent",
     }
-    for app_theme, canonical in (("light", "light-mono"), ("light-color", "light")):
+    for app_theme, canonical in (("light", "light-mono"), ("light-color", "light"), ("sepia", "sepia")):
         values = tok["theme"][canonical]
-        selectors = ':root,\n:root[data-theme="light"]' if app_theme == "light" else ':root[data-theme="light-color"]'
+        selectors = ':root,\n:root[data-theme="light"]' if app_theme == "light" else f':root[data-theme="{app_theme}"]'
         lines.append(selectors + " {")
         for name, source in aliases.items():
             lines.append(f"  --{name}: {values[source]};")
@@ -518,8 +518,8 @@ def render_notepad_css(tok: dict) -> str:
             "  --selected: color-mix(in srgb, var(--primary) 6%, var(--paper));",
             "  --selection: color-mix(in srgb, var(--primary) 12%, transparent);",
             f"  --shadow: {tok['shadow'][canonical]['paper-lg']};",
-            f"  --mark-green: {tok['mark']['light']['green']};",
-            f"  --mark-orange: {tok['mark']['light']['orange']};",
+            f"  --mark-green: {tok['mark']['sepia' if canonical == 'sepia' else 'light']['green']};",
+            f"  --mark-orange: {tok['mark']['sepia' if canonical == 'sepia' else 'light']['orange']};",
             "}",
         ]
     lines += [

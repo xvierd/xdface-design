@@ -47,6 +47,27 @@
   --mark-green: #16A34A;
   --mark-orange: #EA580C;
 }
+:root[data-theme="sepia"] {
+  --paper: #FAF3E3;
+  --ink: #33261A;
+  --muted: #5A4632;
+  --faint: #6E5A45;
+  --line: #DCC9A6;
+  --hover: #EADBBE;
+  --sidebar: #F4E9D4;
+  --inverse: #FAF3E3;
+  --code-bg: #F4E9D4;
+  --primary: #2F5D3A;
+  --primary-hover: #24492D;
+  --primary-fg: #FAF3E3;
+  --link: #2F5D3A;
+  --accent: #953A0C;
+  --selected: color-mix(in srgb, var(--primary) 6%, var(--paper));
+  --selection: color-mix(in srgb, var(--primary) 12%, transparent);
+  --shadow: 0 20px 50px -10px rgba(107,79,42,.32);
+  --mark-green: #2F7A44;
+  --mark-orange: #C2561A;
+}
 :root[data-theme="dark"] {
   --mark-green: #4ADE80;
   --mark-orange: #FB923C;
